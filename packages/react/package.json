@@ -1,0 +1,31 @@
+{
+  "name": "@vkontakte/mini-apps-analytics/react",
+  "version": "0.0.0",
+  "description": "React hooks and context provider for @vkontakte/mini-apps-analytics",
+  "main": "dist/index.js",
+  "browser": "dist/index.umd.js",
+  "module": "dist/index.es.js",
+  "umdName": "vkMiniAppsAnalyticsReact",
+  "types": "dist/types/src/index.d.ts",
+  "author": {
+    "name": "VK",
+    "url": "https://vk.ru"
+  },
+  "license": "MIT",
+  "private": false,
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "watch": "yarn run --top-level rollup -c -w",
+    "build": "NODE_ENV=production yarn run --top-level rollup -c && yarn run build:legacy-types",
+    "build:legacy-types": "yarn run --top-level rollup -c rollup.config-legacy-types.mjs >/dev/null",
+    "prepack": "yarn run build",
+    "test": "yarn run --top-level jest --config ../../jest.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "",
+    "directory": "packages/react"
+  }
+}
