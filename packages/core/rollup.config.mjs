@@ -1,3 +1,4 @@
+import fs from 'fs';
 import babel from '@rollup/plugin-babel';
 import nodeResolve from '@rollup/plugin-node-resolve';
 import terser from '@rollup/plugin-terser';
@@ -5,13 +6,12 @@ import commonjs from '@rollup/plugin-commonjs';
 import typescript from 'rollup-plugin-typescript2';
 import bundleSizes from 'rollup-plugin-bundle-size';
 import json from '@rollup/plugin-json';
-import pkg from './package.json' assert { type: 'json' };
+
+const pkg = fs.readFileSync('./package.json');
 
 const IS_PROD = process.env.NODE_ENV === 'production';
 
 const INPUT_FILE = './src/index.ts';
-const INPUT_FILE_BROWSER = './src/browser.ts';
-const OUTPUT_FILE_BROWSER = './dist/browser.min.js';
 
 const getPlugins = (tsDeclaration = false) => [
     typescript(
@@ -21,7 +21,7 @@ const getPlugins = (tsDeclaration = false) => [
                 tsconfigOverride: {
                     compilerOptions: {
                         declaration: true,
-                        declarationDir: 'dist/types',
+                        declarationDir: 'dist',
                     },
                     exclude: ['**/dist', '**/*.test.ts'],
                 },
@@ -68,14 +68,4 @@ const umd = {
     },
 };
 
-const browser = {
-    plugins: [...getPlugins(), terser()],
-    input: INPUT_FILE_BROWSER,
-    output: {
-        sourcemap: true,
-        file: OUTPUT_FILE_BROWSER,
-        format: 'iife',
-    },
-};
-
-export default IS_PROD ? [cjs, es, umd, browser] : umd;
+export default IS_PROD ? [cjs, es, umd] : umd;

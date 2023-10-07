@@ -1,6 +1,6 @@
 {
-  "name": "@vkontakte/mini-apps-analytics/react",
-  "version": "0.0.0",
+  "name": "@vkontakte/mini-apps-analytics-react",
+  "version": "0.0.1",
   "description": "React hooks and context provider for @vkontakte/mini-apps-analytics",
   "main": "dist/index.js",
   "browser": "dist/index.umd.js",
@@ -22,6 +22,23 @@
     "build:legacy-types": "yarn run --top-level rollup -c rollup.config-legacy-types.mjs >/dev/null",
     "prepack": "yarn run build",
     "test": "yarn run --top-level jest --config ../../jest.config.js"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.13",
+    "@vkontakte/mini-apps-analytics": "0.0.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "react": "^18.2.0"
+  },
+  "peerDependencies": {
+    "@types/react": "^17.0.0 || ^18.0.0",
+    "@vkontakte/mini-apps-analytics": "workspace:^",
+    "react": "^17.0.0 || ^18.1.0"
+  },
+  "peerDependenciesMeta": {
+    "@types/react": {
+      "optional": true
+    }
   },
   "repository": {
     "type": "git",
