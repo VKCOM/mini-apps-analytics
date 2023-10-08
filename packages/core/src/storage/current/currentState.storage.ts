@@ -1,7 +1,6 @@
-import { dataBlockIdKey, dataItemIdKey, storedValueTypeKey, storedValueValueKey } from '@/services/analytics';
-
 import { ID } from '../../types';
 import { PageStateData, PlainDataKey } from '../types';
+import { dataBlockIdKey, dataItemIdKey, storedValueTypeKey, storedValueValueKey } from '../../utils';
 
 const defaultData: PageStateData = {
   blocks: [],

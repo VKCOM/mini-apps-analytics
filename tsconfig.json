@@ -9,9 +9,7 @@
     "resolveJsonModule": true,
     "sourceMap": true,
     "skipLibCheck": true,
-    "paths": {
-      "@vkontakte/vk-bridge": ["./packages/core"]
-    },
+    "lib": ["dom", "dom.iterable", "esnext"],
     "checkJs": false,
     "allowJs": true,
     "strictNullChecks": true,
@@ -19,7 +17,10 @@
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
     "noFallthroughCasesInSwitch": true,
-    "types": ["jest"]
+    "types": ["jest"],
+    "paths": {
+      "@vkontakte/mini-apps-analytics": ["./packages/core"]
+    }
   },
   "exclude": ["**/dist", "**/node_modules"]
 }
