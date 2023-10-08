@@ -18,8 +18,7 @@
   ],
   "scripts": {
     "watch": "yarn run --top-level rollup -c -w",
-    "build": "NODE_ENV=production yarn run --top-level rollup -c && yarn run build:legacy-types",
-    "build:legacy-types": "yarn run --top-level rollup -c rollup.config-legacy-types.mjs >/dev/null",
+    "build": "NODE_ENV=production yarn run --top-level rollup -c",
     "prepack": "yarn run build",
     "test": "yarn run --top-level jest --config ../../jest.config.js"
   },
@@ -32,7 +31,7 @@
   },
   "peerDependencies": {
     "@types/react": "^17.0.0 || ^18.0.0",
-    "@vkontakte/mini-apps-analytics": "workspace:^",
+    "@vkontakte/mini-apps-analytics": "0.0.1",
     "react": "^17.0.0 || ^18.1.0"
   },
   "peerDependenciesMeta": {

@@ -42,7 +42,7 @@ const cjs = {
         file: pkg.main,
         format: 'cjs',
     },
-    external: ['react', '@vkontakte/vk-bridge'],
+    external: ['react', '@vkontakte/mini-apps-analytics'],
 };
 
 const es = {
@@ -53,7 +53,7 @@ const es = {
         file: pkg.module,
         format: 'es',
     },
-    external: ['react', '@vkontakte/vk-bridge'],
+    external: ['react', '@vkontakte/mini-apps-analytics'],
 };
 
 export default IS_PROD ? [cjs, es] : es;
