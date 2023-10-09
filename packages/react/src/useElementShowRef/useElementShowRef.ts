@@ -5,7 +5,7 @@ import { analyticsContext } from '../context';
 export const useElementShowRef = <T extends HTMLElement>(): ((el: T) => void) => {
   const unregisterCbRef = useRef<() => void>();
   const elementRef = useRef<T>();
-  const { isShowElementEventActive, showEventService } = useContext(analyticsContext);
+  const { showEventService } = useContext(analyticsContext);
 
   /* Сохраняем реф на элемент */
   const register = useCallback((el: T) => {
@@ -19,7 +19,7 @@ export const useElementShowRef = <T extends HTMLElement>(): ((el: T) => void) =>
      * блоках еще не актуализирована в хранилище состояния страницы. Дожидаемся окончания анимации
      */
     setTimeout(() => {
-      if (isShowElementEventActive && elementRef.current) {
+      if (elementRef.current) {
         unregisterCbRef.current = showEventService.register(elementRef.current);
       }
     }, 500);
@@ -27,7 +27,7 @@ export const useElementShowRef = <T extends HTMLElement>(): ((el: T) => void) =>
     return () => {
       unregisterCbRef.current && unregisterCbRef.current();
     };
-  }, [register, isShowElementEventActive, showEventService]);
+  }, [register, showEventService]);
 
   return register;
 };

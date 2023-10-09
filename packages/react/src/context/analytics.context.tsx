@@ -7,14 +7,12 @@ import {
 } from "@vkontakte/mini-apps-analytics";
 
 export type AnalyticsContextValue = {
-  isShowElementEventActive: boolean;
   showEventService: ShowEventService;
   storedKeys: Array<keyof PageStateData>;
   screenOpenEventService: ScreenOpenEventService;
 };
 
 const defaultValue: AnalyticsContextValue = {
-  isShowElementEventActive: true,
   showEventService: new ShowEventService(() => CurrentStateStorage.data),
   screenOpenEventService: new ScreenOpenEventService(() => CurrentStateStorage.data),
   storedKeys: [],
