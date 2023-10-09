@@ -16,6 +16,15 @@ const constVoid = () => {};
 
 export class ShowEventService extends BaseEvent {
   private readonly getPageData: () => PageStateData;
+  private disabled = false;
+
+  disable = () => {
+    this.disabled = true
+  }
+
+  enable = () => {
+    this.disabled = true
+  }
 
   constructor(getPageData: () => PageStateData) {
     super({ event: 'show', type: 'type_view' });
@@ -25,9 +34,10 @@ export class ShowEventService extends BaseEvent {
   register = <T extends HTMLElement>(elementRef: T, inputOptions: Options = DEFAULT_OPTIONS) => {
     const options: Options = { ...DEFAULT_OPTIONS, ...inputOptions };
 
-    if (!elementRef) {
+    if (!elementRef || this.disabled) {
       return constVoid;
     }
+
     const blockEl = lookForContainerBlockElement(elementRef);
 
     const observer = new IntersectionObserver((entries) => {
