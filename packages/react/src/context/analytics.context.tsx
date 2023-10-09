@@ -6,7 +6,7 @@ import {
     ShowEventService
 } from "@vkontakte/mini-apps-analytics";
 
-type AnalyticsContextValue = {
+export type AnalyticsContextValue = {
   isShowElementEventActive: boolean;
   showEventService: ShowEventService;
   storedKeys: Array<keyof PageStateData>;
