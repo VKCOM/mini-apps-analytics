@@ -1,23 +1,21 @@
-import {useContext, useEffect, useLayoutEffect, useMemo, useRef} from 'react';
-import {CurrentStateStorage, PageStateData, ScreenOpenEventService} from '@vkontakte/mini-apps-analytics';
+import { useContext, useEffect, useLayoutEffect, useMemo, useRef } from 'react';
+import { CurrentStateStorage } from '@vkontakte/mini-apps-analytics';
 
 
 import { useModalPageAnalytics } from './useModalPageAnalytics';
 import { usePanelPageAnalytics } from './usePanelPageAnalytics';
 import {analyticsContext} from "../context";
 
-type Params = {
+export type UsePageAnalyticsParams = {
   modalPageName: string | null | 0;
   panelPageName: string;
   deps?: string[];
-  screenOpenEventService: ScreenOpenEventService;
-  storedKeys: Array<keyof PageStateData>
 };
 
 const defaultDeps: string[] = [];
 
-export const usePageAnalytics = ({ panelPageName, modalPageName, deps = defaultDeps }: Params, isAppReady = true) => {
-  const { storedKeys, screenOpenEventService } = useContext(analyticsContext);
+export const usePageAnalytics = ({ panelPageName, modalPageName, deps = defaultDeps }: UsePageAnalyticsParams, isAppReady = true) => {
+  const { screenOpenEventService } = useContext(analyticsContext);
   const url = useMemo(() => new URL(window.location.href), [])
   const vkRef = url.searchParams.get('vk_ref')
 

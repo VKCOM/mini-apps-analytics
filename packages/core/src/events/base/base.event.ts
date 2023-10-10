@@ -11,7 +11,6 @@ export type SendEvent = (eventData: EventData & Record<any, any>) => Promise<voi
 
 export class BaseEvent {
   static sendEvent: SendEvent = (data) => {
-    console.clear();
     console.log(`--- event `, data.event, data);
     return Promise.resolve();
   };
