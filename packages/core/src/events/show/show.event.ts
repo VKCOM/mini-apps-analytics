@@ -23,7 +23,7 @@ export class ShowEventService extends BaseEvent {
   }
 
   enable = () => {
-    this.disabled = true
+    this.disabled = false
   }
 
   constructor(getPageData: () => PageStateData) {
