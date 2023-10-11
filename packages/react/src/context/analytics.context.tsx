@@ -8,14 +8,12 @@ import {
 
 export type AnalyticsContextValue = {
   showEventService: ShowEventService;
-  storedKeys: Array<keyof PageStateData>;
   screenOpenEventService: ScreenOpenEventService;
 };
 
 const defaultValue: AnalyticsContextValue = {
   showEventService: new ShowEventService(() => CurrentStateStorage.data),
   screenOpenEventService: new ScreenOpenEventService(() => CurrentStateStorage.data),
-  storedKeys: [],
 };
 
 export const analyticsContext = React.createContext<AnalyticsContextValue>(defaultValue);

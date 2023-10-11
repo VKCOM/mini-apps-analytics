@@ -24,14 +24,14 @@ export class CurrentStateStorage {
 
   static storedKeys: Array<keyof PageStateData> = [];
 
-  static setPage = (screenName: string, storedKeys?: Array<keyof PageStateData>) => {
+  static setPage = (screenName: string) => {
     const newData: PageStateData = {
       ...defaultData,
       launchUrl: CurrentStateStorage.data.launchUrl,
       screenName,
     };
 
-    (storedKeys || []).forEach((key) => {
+    (CurrentStateStorage.storedKeys || []).forEach((key) => {
       // @ts-ignore
       newData[key] = CurrentStateStorage.data[key];
     });
@@ -69,6 +69,19 @@ export class CurrentStateStorage {
 
   static cleanUp = () => {
     CurrentStateStorage.data.blocks.length = 0;
+    const newData: PageStateData = {
+      ...defaultData,
+      launchUrl: CurrentStateStorage.data.launchUrl,
+    };
+
+    (CurrentStateStorage.storedKeys || []).forEach((key) => {
+      // @ts-ignore
+      newData[key] = CurrentStateStorage.data[key];
+    });
+
+    CurrentStateStorage.data = {
+      ...newData,
+    };
   };
 
   static mapStoredValues = defaultMapStoredKeys;

@@ -9,12 +9,13 @@ import {analyticsContext} from "../context";
 export type UsePageAnalyticsParams = {
   modalPageName: string | null | 0;
   panelPageName: string;
-  deps?: string[];
+  pageDeps?: string[];
+  cleanUpDeps?: string[];
 };
 
 const defaultDeps: string[] = [];
 
-export const usePageAnalytics = ({ panelPageName, modalPageName, deps = defaultDeps }: UsePageAnalyticsParams, isAppReady = true) => {
+export const usePageAnalytics = ({ panelPageName, modalPageName, pageDeps = defaultDeps, cleanUpDeps = defaultDeps }: UsePageAnalyticsParams, isAppReady = true) => {
   const { screenOpenEventService } = useContext(analyticsContext);
   const url = useMemo(() => new URL(window.location.href), [])
   const vkRef = url.searchParams.get('vk_ref')
@@ -44,8 +45,8 @@ export const usePageAnalytics = ({ panelPageName, modalPageName, deps = defaultD
 
   const currentModalPageName = lastModalRef.current;
 
-  useModalPageAnalytics(currentModalPageName, deps);
-  usePanelPageAnalytics(panelPageName, currentModalPageName, deps);
+  useModalPageAnalytics(currentModalPageName, pageDeps);
+  usePanelPageAnalytics(panelPageName, currentModalPageName, pageDeps);
 
   /** Регистрируем слушателя открытия страница */
   useLayoutEffect(() => {
@@ -55,7 +56,7 @@ export const usePageAnalytics = ({ panelPageName, modalPageName, deps = defaultD
       /** Очищаем интервал, если страница не была до конца загружена, но пользователь уже перешел на другую */
       clearInterval(screenOpenInterval);
     };
-  }, [panelPageName, currentModalPageName, screenOpenEventService, ...deps]);
+  }, [panelPageName, currentModalPageName, screenOpenEventService, ...pageDeps]);
 
   /**
    * При старте приложения и смене роута регистрируем доступные на странице блоки.
@@ -70,5 +71,16 @@ export const usePageAnalytics = ({ panelPageName, modalPageName, deps = defaultD
     return () => {
       CurrentStateStorage.cleanUp();
     };
-  }, [panelPageName, isAppReady, currentModalPageName, ...deps]);
+  }, [panelPageName, isAppReady, currentModalPageName, ...pageDeps]);
+
+  useEffect(() => {
+    if (isAppReady) {
+        CurrentStateStorage.registerExistingValues(currentModalPageName !== null);
+        CurrentStateStorage.cleanUp();
+    }
+
+    return () => {
+        CurrentStateStorage.cleanUp();
+    };
+  }, [cleanUpDeps, currentModalPageName])
 };

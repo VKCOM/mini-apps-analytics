@@ -1,11 +1,8 @@
-import {useContext, useLayoutEffect} from 'react';
+import {useLayoutEffect} from 'react';
 
-import {CurrentStateStorage, PageStateData} from "@vkontakte/mini-apps-analytics";
-import {analyticsContext} from "../context";
+import {CurrentStateStorage} from "@vkontakte/mini-apps-analytics";
 
 export const usePanelPageAnalytics = (panelPageName: string, modalPageName: string | null | 0, deps: string[] = []) => {
-  const { storedKeys } = useContext(analyticsContext);
-
   /**
    * Очищаем ранее собранную информацию по странице и инициируем новый сбор данных для страницы
    */
@@ -15,9 +12,9 @@ export const usePanelPageAnalytics = (panelPageName: string, modalPageName: stri
     }
 
     const source = CurrentStateStorage.getValue('screenName');
-    CurrentStateStorage.setPage(panelPageName, storedKeys);
+    CurrentStateStorage.setPage(panelPageName);
     CurrentStateStorage.addPlainData<'source'>('source', source);
-  }, [panelPageName, modalPageName, storedKeys, ...deps]);
+  }, [panelPageName, modalPageName, ...deps]);
 
   return panelPageName;
 };
