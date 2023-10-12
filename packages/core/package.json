@@ -1,0 +1,30 @@
+{
+  "name": "@vkontakte/mini-apps-analytics",
+  "version": "0.0.1",
+  "description": "core functionality to for VK mini apps analytics ",
+  "main": "dist/index.js",
+  "browser": "dist/index.umd.js",
+  "module": "dist/index.es.js",
+  "umdName": "vkMiniAppsAnalytics",
+  "types": "dist/types/src/index.d.ts",
+  "author": {
+    "name": "VK",
+    "url": "https://vk.ru"
+  },
+  "license": "MIT",
+  "private": false,
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "watch": "yarn run --top-level rollup -c -w",
+    "build": "NODE_ENV=production yarn run --top-level rollup -c",
+    "prepack": "yarn run build",
+    "test": "yarn run --top-level jest --config ../../jest.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "",
+    "directory": "packages/core"
+  }
+}
