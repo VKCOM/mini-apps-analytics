@@ -2,10 +2,14 @@ import { useCallback, useContext, useEffect, useRef } from 'react';
 
 import { analyticsContext } from '../context';
 
+/**
+ * Регистрирует IntersectionObserver на элементе с помощью вызова ShowEventService.register.
+ * При анмаунте элемента отписывается от IntersectionObserver.
+ * */
 export const useElementShowRef = <T extends HTMLElement>(): ((el: T) => void) => {
   const unregisterCbRef = useRef<() => void>();
   const elementRef = useRef<T>();
-  const { showEventService } = useContext(analyticsContext);
+  const { showEventService, isShowElementEventActive } = useContext(analyticsContext);
 
   /* Сохраняем реф на элемент */
   const register = useCallback((el: T) => {
@@ -19,7 +23,7 @@ export const useElementShowRef = <T extends HTMLElement>(): ((el: T) => void) =>
      * блоках еще не актуализирована в хранилище состояния страницы. Дожидаемся окончания анимации
      */
     setTimeout(() => {
-      if (elementRef.current) {
+      if (isShowElementEventActive && elementRef.current) {
         unregisterCbRef.current = showEventService.register(elementRef.current);
       }
     }, 500);
@@ -27,7 +31,7 @@ export const useElementShowRef = <T extends HTMLElement>(): ((el: T) => void) =>
     return () => {
       unregisterCbRef.current && unregisterCbRef.current();
     };
-  }, [register, showEventService]);
+  }, [register, showEventService, isShowElementEventActive]);
 
   return register;
 };
