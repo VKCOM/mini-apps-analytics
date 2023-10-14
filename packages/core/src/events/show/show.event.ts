@@ -31,6 +31,21 @@ export class ShowEventService extends BaseEvent {
     this.getPageData = getPageData;
   }
 
+  /** Регистрирует IntersectionObserver на элементе, с заданными параметрами (по дефолту - {threshold: 0.7})
+   * Возвращает функцию отключения наблюдения IntersectionObserver на элементе.
+   * При показе элемента собирает информацию об элеменет (getItemInfo), блоке (getBlockInfo) и странице (this.getPageData),
+   * вызывает
+   *
+   * this.send({
+   *     ...getItemInfo(...),
+   *     ...this.getPageData(),
+   *     ...getBlockInfo(...),
+   * })
+   *
+   * и отписывается от IntersectionObserver.
+   *
+   * Документация по inputOptions https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API#creating_an_intersection_observer
+   *  */
   register = <T extends HTMLElement>(elementRef: T, inputOptions: Options = DEFAULT_OPTIONS) => {
     const options: Options = { ...DEFAULT_OPTIONS, ...inputOptions };
 

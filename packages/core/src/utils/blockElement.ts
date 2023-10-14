@@ -13,7 +13,20 @@ export const lookForContainerBlockElement = (itemElement: HTMLElement): HTMLElem
   return lookForContainerBlockElement(parent);
 };
 
-export const getBlockInfo = <T extends HTMLElement, B extends { id: string | number }>(block: T, blocks: B[]) => {
+export type HTMLBlockData = {
+  /** ID блока, заданый через data-атрибут data-block-id */
+  actionBlockId: string;
+  /** Тип сущностей внутри блока, заданый через data-атрибут data-entity-type */
+  actionEntityType: string;
+  /** Имя блока блока, заданое через data-атрибут data-block-name */
+  actionBlockName: string;
+  /** Порядковый номер блока в массиве blocks */
+  actionBlockIndex: number;
+  /** Является ли блок листовым элементом. Определяется на основе data-атрибута data-block-is-leaf */
+  isBlockLeaf: boolean;
+}
+
+export const getBlockInfo = <T extends HTMLElement, B extends { id: string | number }>(block: T, blocks: B[]): HTMLBlockData => {
   const actionBlockId = block.getAttribute(dataBlockIdKey) || '';
   const actionEntityType = block.getAttribute(dataEntityTypeKey) || '';
   const actionBlockName = block.getAttribute(dataBlockNameKey) || '';

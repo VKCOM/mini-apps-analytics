@@ -22,8 +22,17 @@ const defaultMapStoredKeys = <K extends keyof PageStateData>(
 export class CurrentStateStorage {
   static data: PageStateData = defaultData;
 
+  /** Ключи значений в хранилище, которые сохраняются даже после вызова методов CurrentStateStorage.cleanUp и CurrentStateStorage.setPage */
   static storedKeys: Array<keyof PageStateData> = [];
 
+  /** Метод для установки значения screenName.
+   *  При вызове:
+   *
+   *  - устанавливает переданный screenName
+   *  - обнуляет хранимое значение CurrentStateStorage.data, при этом
+   *  - сохраняет значение launchUrl
+   *  - сохраняет ранее записанные данные для значений, указанных в CurrentStateStorage.storeKeys
+   *  */
   static setPage = (screenName: string) => {
     const newData: PageStateData = {
       ...defaultData,
@@ -41,10 +50,13 @@ export class CurrentStateStorage {
     };
   };
 
+  /** Устанавливает значение по заданному ключу(field) в CurrentStateStorage.data[field] */
   static addPlainData = <K extends PlainDataKey>(field: K, value: PageStateData[K]) => {
     CurrentStateStorage.data[field] = value;
   };
 
+  /** Добавляет информацию о переданном блоке в CurrentStateStorage.data.block.
+   *  Если блок с таким id уже зарегистрирован, дважды блок добавлен не будет */
   static registerBlock = (block: { id: ID; name?: string; entityType?: string; items?: ID[] }) => {
     if (CurrentStateStorage.data.blocks.findIndex(({ id }) => id === block.id) !== -1) {
       return;
@@ -53,6 +65,8 @@ export class CurrentStateStorage {
     CurrentStateStorage.data.blocks.push({ ...block, items: block.items || [] });
   };
 
+  /** Добавляет информацию в CurrentStateStorage.data.block[blockId] об элементе.
+   * Если в блоке уже существует такой элемент, дважды элемент добавлен не будет */
   static addItemByBlockId = (blockId: ID, item: { id: ID; name: string }) => {
     const block = CurrentStateStorage.data.blocks.find(({ id }) => id === blockId);
 
@@ -63,10 +77,18 @@ export class CurrentStateStorage {
     block.items.push(item.id);
   };
 
+  /** @returns Текущее значение в хранилище данных CurrentStateStorage.data[key] */
   static getValue = <K extends Exclude<keyof PageStateData, 'blocks'>>(key: K) => {
     return CurrentStateStorage.data[key];
   };
 
+  /** Метод для сброса текущих значений в CurrentStateStorage.data.
+   *  При вызове:
+   *
+   *  - обнуляет хранимое значение CurrentStateStorage.data, при этом
+   *  - сохраняет значение launchUrl
+   *  - сохраняет ранее записанные данные для значений, указанных в CurrentStateStorage.storeKeys
+   *  */
   static cleanUp = () => {
     CurrentStateStorage.data.blocks.length = 0;
     const newData: PageStateData = {
@@ -86,6 +108,7 @@ export class CurrentStateStorage {
 
   static mapStoredValues = defaultMapStoredKeys;
 
+  /** Селектор корневого элемента панели, откуда будут собираться данные */
   static panelSelectors: string[] = [];
 
   static getSelectorFromActivePanel = (searchSelector: string) =>
@@ -94,8 +117,13 @@ export class CurrentStateStorage {
       /** Из-за склейки в редьюсе получается лишние ", " в самом начале. Избавляемся от некорректной части CSS селектора */
       .slice(2);
 
+  /** Селектор корневого элемента модальной страницы, откуда будут собираться данные */
   static modalRootSelector = `.vkuiModalRoot`;
 
+  /** Собирает существующую информацию на странице на основе data-атрибутов (см. документацию по поддерживаемым data-атрибутам )
+   *
+   * @param shouldLookIntoModal - собирать ли инфомарцию по странице в панели или в модальной странице
+   * */
   static registerExistingValues = (shouldLookIntoModal?: boolean) => {
     call(() => {
       const panelBlocksSelectors = CurrentStateStorage.getSelectorFromActivePanel(`[${dataBlockIdKey}]`);
@@ -148,11 +176,19 @@ export class CurrentStateStorage {
 }
 
 type SetupParams = {
+  /** Селектор корневого элемента модальной страницы, откуда будут собираться данные */
   modalRootSelector: string;
+  /** Селектор корневого элемента панели, откуда будут собираться данные */
   panelSelectors: string[];
-  mapStoredValues?: <K extends keyof PageStateData>(dataKey: K, value: string) => PageStateData[K] | undefined;
+  /** Ключи значений в хранилище, которые сохраняются даже после вызова методов CurrentStateStorage.cleanUp и CurrentStateStorage.setPage */
   storedKeys?: Array<keyof PageStateData>;
+  /**/
+  mapStoredValues?: <K extends keyof PageStateData>(dataKey: K, value: string) => PageStateData[K] | undefined;
 };
+
+/**
+ * Настройка конфигурации работы хранилища CurrentStateStorage
+ */
 export const setUpAnalyticsStorage = ({
   modalRootSelector,
   panelSelectors,
