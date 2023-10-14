@@ -6,8 +6,17 @@ import {
 } from "@vkontakte/mini-apps-analytics";
 
 export type AnalyticsContextValue = {
+  /** Флаг для отключения срабатывания show события внутри useElementShowRef.
+   * Необходим, например, при открытии/закрытии модальных страниц - это событие считается полноценной
+   * сменой страницы и события show должны отрабатывать заново, при закрытии модальной страницы, притом, что
+   * открытие модальной страницы не влечет отпарвку события show
+   * */
   isShowElementEventActive: boolean;
+  /** Инстанс класса ShowEventService. При передаче инстанса есть возможность сконфигурировать отправку show события
+   * разными способами, настроив разные контексты react'a */
   showEventService: ShowEventService;
+  /** Инстанс класса ShowEventService. При передаче инстанса есть возможность сконфигурировать отправку screen_open события
+   * разными способами, настроив разные контексты react'a */
   screenOpenEventService: ScreenOpenEventService;
 };
 

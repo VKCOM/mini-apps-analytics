@@ -5,6 +5,14 @@ import { analyticsContext } from '../context';
 /**
  * Регистрирует IntersectionObserver на элементе с помощью вызова ShowEventService.register.
  * При анмаунте элемента отписывается от IntersectionObserver.
+ *
+ * Зависит от значения analyticsContext.showEventService:
+ *
+ * - analyticsContext.showEventService === false - отписывается от IntersectionObserver
+ * - analyticsContext.showEventService === true - пощдписывается от IntersectionObserver
+ *
+ * Зависимость необходима, например, при открытии/закрытии модальных страниц - это событие считается полноценной
+ * сменой страницы и события show должны отрабатывать заново, при закрытии модальной страницы
  * */
 export const useElementShowRef = <T extends HTMLElement>(): ((el: T) => void) => {
   const unregisterCbRef = useRef<() => void>();
