@@ -2,6 +2,35 @@ import { RefObject, useEffect, useRef } from 'react';
 
 import { CurrentStateStorage, getBlockInfo } from '@vkontakte/mini-apps-analytics';
 
+/**
+ * Необходим при рендере динамически подгружаемых блоков на странице.
+ * В случае, если блоки статичны, простой вызов метода CurrentStateStorage.registerExistingValues
+ * зарегистрирует существующие на странице значения.
+ *
+ * @returns React.ref для регистрации блока.
+ * @example
+ * import { getBlockParameters, getItemParameters } from '@vkontakte/mini-apps-analytics';
+ * import { useBlockRef } from '@vkontakte/mini-apps-analytics-react'
+ *
+ * const BlockElement = () => {
+ *  const blockRef = useBlockRef<HTMLDivElement>()
+ *  return (
+ *      <div ref={blockRef} {...getBlockParameters({ id: 'blockId', entityType: 'customItemEntity', name: 'custom block name' })}>
+ *        <div {...getItemParameters('customItemId')}>custom item content</div>
+ *       </div>
+ *   )
+ * }
+ *
+ * // Установит в CurrentStateStorage.data: {
+ * //  ...,
+ * //  blocks: [..., {
+ * //    id: 'blockId',
+ * //    name: 'custom block name',
+ * //    entityType: 'customItemEntity',
+ * //    items: ['customItemId']
+ * //  }]
+ * //  }
+ * */
 export const useBlockRef = <T extends HTMLElement>(): RefObject<T> => {
   const blockRef = useRef<T>(null);
 
