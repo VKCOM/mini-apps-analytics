@@ -41,7 +41,7 @@
 
 #### Defined in
 
-storage/current/currentState.storage.ts:25
+storage/current/currentState.storage.ts:23
 
 ___
 
@@ -72,7 +72,7 @@ ___
 
 #### Defined in
 
-storage/current/currentState.storage.ts:111
+storage/current/currentState.storage.ts:109
 
 ___
 
@@ -84,7 +84,7 @@ ___
 
 #### Defined in
 
-storage/current/currentState.storage.ts:123
+storage/current/currentState.storage.ts:121
 
 ___
 
@@ -96,7 +96,7 @@ ___
 
 #### Defined in
 
-storage/current/currentState.storage.ts:114
+storage/current/currentState.storage.ts:112
 
 ___
 
@@ -108,7 +108,7 @@ ___
 
 #### Defined in
 
-storage/current/currentState.storage.ts:28
+storage/current/currentState.storage.ts:26
 
 ## Methods
 
@@ -134,7 +134,7 @@ storage/current/currentState.storage.ts:28
 
 #### Defined in
 
-storage/current/currentState.storage.ts:72
+storage/current/currentState.storage.ts:70
 
 ___
 
@@ -163,7 +163,7 @@ ___
 
 #### Defined in
 
-storage/current/currentState.storage.ts:56
+storage/current/currentState.storage.ts:54
 
 ___
 
@@ -184,7 +184,7 @@ ___
 
 #### Defined in
 
-storage/current/currentState.storage.ts:94
+storage/current/currentState.storage.ts:92
 
 ___
 
@@ -204,7 +204,7 @@ ___
 
 #### Defined in
 
-storage/current/currentState.storage.ts:116
+storage/current/currentState.storage.ts:114
 
 ___
 
@@ -232,7 +232,7 @@ ___
 
 #### Defined in
 
-storage/current/currentState.storage.ts:83
+storage/current/currentState.storage.ts:81
 
 ___
 
@@ -259,7 +259,7 @@ ___
 
 #### Defined in
 
-storage/current/currentState.storage.ts:62
+storage/current/currentState.storage.ts:60
 
 ___
 
@@ -281,7 +281,7 @@ ___
 
 #### Defined in
 
-storage/current/currentState.storage.ts:129
+storage/current/currentState.storage.ts:127
 
 ___
 
@@ -309,4 +309,4 @@ ___
 
 #### Defined in
 
-storage/current/currentState.storage.ts:38
+storage/current/currentState.storage.ts:36

@@ -3,7 +3,7 @@
 # Interface: CustomData
 
 Внутри пакета интерфейс CustomData пустой. Для того, чтобы была возможность расширить финальный тип информации о странице
-([PageStateData](../modules.md#pagestatedata)) данными, специфичными для Вашего приложение оставлена возможность доопределить интерйефс CustomData
+([PageStateData](../README.md#pagestatedata)) данными, специфичными для Вашего приложение оставлена возможность доопределить интерйефс CustomData
 стандартными инструментами TypeScript - с помощью практики module augmentation:
 
 **`Example`**
