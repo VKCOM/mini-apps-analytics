@@ -67,7 +67,7 @@ export class CurrentStateStorage {
 
   /** Добавляет информацию в CurrentStateStorage.data.block[blockId] об элементе.
    * Если в блоке уже существует такой элемент, дважды элемент добавлен не будет */
-  static addItemByBlockId = (blockId: ID, item: { id: ID; name: string }) => {
+  static addItemByBlockId = (blockId: ID, item: { id: ID; name?: string }) => {
     const block = CurrentStateStorage.data.blocks.find(({ id }) => id === blockId);
 
     if (!block || block.items.includes(item.id)) {
