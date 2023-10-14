@@ -32,7 +32,7 @@
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `isShowElementEventActive` | `boolean` | Флаг для отключения срабатывания show события внутри useElementShowRef. Необходим, например, при открытии/закрытии модальных страниц - это событие считается полноценной сменой страницы и события show должны отрабатывать заново, притом, что открытие модальной страницы не влечет отпарвку события show |
+| `isShowElementEventActive` | `boolean` | Флаг для отключения срабатывания show события внутри useElementShowRef. Необходим, например, при открытии/закрытии модальных страниц - это событие считается полноценной сменой страницы и события show должны отрабатывать заново, при закрытии модальной страницы, притом, что открытие модальной страницы не влечет отпарвку события show |
 | `screenOpenEventService` | `ScreenOpenEventService` | Инстанс класса ShowEventService. При передаче инстанса есть возможность сконфигурировать отправку screen_open события разными способами, настроив разные контексты react'a |
 | `showEventService` | `ShowEventService` | Инстанс класса ShowEventService. При передаче инстанса есть возможность сконфигурировать отправку show события разными способами, настроив разные контексты react'a |
 
@@ -48,12 +48,12 @@ ___
 
 #### Type declaration
 
-| Name | Type |
-| :------ | :------ |
-| `cleanUpDeps?` | `string`[] |
-| `modalPageName` | `string` \| ``null`` \| ``0`` |
-| `pageDeps?` | `string`[] |
-| `panelPageName` | `string` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `cleanUpDeps?` | `string`[] | Значения, при которых необходимо очистить CurrentStateStorage.data Пример использования. Динамическое изменение фильтров на странице должно инициировать новую регистрацию существующих элементов на странице, но не должно инициировать смену страницы |
+| `modalPageName` | `string` \| ``null`` \| ``0`` | Имя текущей модальной страницы. При изменении - вызывается событие screen_open; - сбрасыватеся CurrentStateStorage.data; - устанавливается соответствующее значение CurrentStateStorage.data.screenName; 0 - системное значение, говорящее о том, что не надо учитывать эту модалку в потоке изменения экранов |
+| `pageDeps?` | `string`[] | Значения, при которых панель/модальная страница остаются неизменными (меняется только контент). Пример использования. Страница с различными табами навигации: панель остается неизменной, но рендерится новая страница |
+| `panelPageName` | `string` | Имя текущей панели. При изменении - вызывается событие screen_open; - сбрасыватеся CurrentStateStorage.data; - устанавливается соответствующее значение CurrentStateStorage.data.screenName; |
 
 #### Defined in
 
@@ -189,7 +189,7 @@ ___
 - analyticsContext.showEventService === true - пощдписывается от IntersectionObserver
 
 Зависимость необходима, например, при открытии/закрытии модальных страниц - это событие считается полноценной
-сменой страницы и события show должны отрабатывать заново
+сменой страницы и события show должны отрабатывать заново, при закрытии модальной страницы
 
 #### Type parameters
 
@@ -291,6 +291,13 @@ ___
 
 ▸ **usePageAnalytics**(`«destructured»`, `isAppReady?`): `void`
 
+Хелпер для отслеживания текущего состояния страницы, при навигации по приложению.
+
+- сохраняет launchUrl в CurrentStateStorage.data на основе window.location.href (удаляет параметры access_token, vk_access_token_settings и sign);
+- сохраняет source в CurrentStateStorage.data на основе window.location.href.searchParams.get('vkRef') (удаляет параметры access_token, vk_access_token_settings и sign);
+- регистрирует screenOpenEventService.registerScreenListener при смене страницы
+- при изменении зависимостей cleanUpDeps вызывает CurrentStateStorage.cleanUp
+
 #### Parameters
 
 | Name | Type | Default value |
@@ -304,4 +311,4 @@ ___
 
 #### Defined in
 
-packages/react/src/usePageAnalytics/usePageAnalytics.ts:18
+packages/react/src/usePageAnalytics/usePageAnalytics.ts:46
