@@ -1,5 +1,5 @@
-import { MutableRefObject, useEffect, useRef } from 'react';
 import { CurrentStateStorage, getItemInfo, ID } from '@vkontakte/mini-apps-analytics';
+import { MutableRefObject, useEffect, useRef } from 'react';
 
 /**
  * Необходим при рендере динамически подгружаемых элементов на странице.
@@ -41,7 +41,8 @@ import { CurrentStateStorage, getItemInfo, ID } from '@vkontakte/mini-apps-analy
  * //   items: ['customItemId']
  * // }]
  * // }
- * */
+ *
+ */
 export const useItemRef = <T extends HTMLElement>(id: ID): MutableRefObject<T | null> => {
   const itemRef = useRef<T>(null);
 

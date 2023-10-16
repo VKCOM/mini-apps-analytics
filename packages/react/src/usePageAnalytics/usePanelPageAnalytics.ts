@@ -1,6 +1,5 @@
-import {useLayoutEffect} from 'react';
-
-import {CurrentStateStorage} from "@vkontakte/mini-apps-analytics";
+import { CurrentStateStorage } from '@vkontakte/mini-apps-analytics';
+import { useLayoutEffect } from 'react';
 
 export const usePanelPageAnalytics = (panelPageName: string, modalPageName: string | null | 0, deps: string[] = []) => {
   /**
