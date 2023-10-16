@@ -6,6 +6,7 @@ import {
   getItemParameters,
   ScreenOpenEventService,
   setUpAnalyticsStorage,
+  setupOnEventSend,
   ShowEventService,
 } from '@vkontakte/mini-apps-analytics';
 import {
@@ -160,6 +161,22 @@ const App = () => {
     </AppWrapper>
   );
 };
+
+/**
+ * По умолчанию метод send установлен в работу с console.log.
+ * Пример маппинга данных под любой необходимый формат и утсановке кастомного колбека на отправку событий
+ */
+setupOnEventSend((eventData) => {
+  const data = {
+    blocks: eventData.blocks,
+    stringData: eventData.myAwesomeStringAppData,
+    numberValue: eventData.myAwesomeNumberAppData,
+  };
+
+  /** Используем любой доступный способ отправки события. fetch взят для примера */
+  fetch('/api/analytics', { method: 'post', body: JSON.stringify(data) });
+});
+
 
 const runApp = () => {
   const root = document.getElementById('root');
