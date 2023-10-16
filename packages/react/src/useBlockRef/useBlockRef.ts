@@ -1,6 +1,5 @@
-import { RefObject, useEffect, useRef } from 'react';
-
 import { CurrentStateStorage, getBlockInfo } from '@vkontakte/mini-apps-analytics';
+import { type RefObject, useEffect, useRef } from 'react';
 
 /**
  * Необходим при рендере динамически подгружаемых блоков на странице.
@@ -30,7 +29,8 @@ import { CurrentStateStorage, getBlockInfo } from '@vkontakte/mini-apps-analytic
  * //    items: ['customItemId']
  * //  }]
  * //  }
- * */
+ *
+ */
 export const useBlockRef = <T extends HTMLElement>(): RefObject<T> => {
   const blockRef = useRef<T>(null);
 

@@ -6,7 +6,7 @@ export const lookForContainerBlockElement = (itemElement: HTMLElement): HTMLElem
     return null;
   }
 
-  if (!!parent.getAttribute(dataBlockIdKey)) {
+  if (parent.getAttribute(dataBlockIdKey)) {
     return parent;
   }
 
@@ -24,14 +24,17 @@ export type HTMLBlockData = {
   actionBlockIndex: number;
   /** Является ли блок листовым элементом. Определяется на основе data-атрибута data-block-is-leaf */
   isBlockLeaf: boolean;
-}
+};
 
-export const getBlockInfo = <T extends HTMLElement, B extends { id: string | number }>(block: T, blocks: B[]): HTMLBlockData => {
+export const getBlockInfo = <T extends HTMLElement, B extends { id: string | number }>(
+  block: T,
+  blocks: B[]
+): HTMLBlockData => {
   const actionBlockId = block.getAttribute(dataBlockIdKey) || '';
   const actionEntityType = block.getAttribute(dataEntityTypeKey) || '';
   const actionBlockName = block.getAttribute(dataBlockNameKey) || '';
   const isBlockLeaf = block.getAttribute(dataBlockIsLeaf) === 'true';
-  const actionBlockIndex = blocks.findIndex((block) => block.id === actionBlockId);
+  const actionBlockIndex = blocks.findIndex((blockItem) => blockItem.id === actionBlockId);
 
   return {
     actionBlockId,

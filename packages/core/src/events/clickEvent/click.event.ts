@@ -28,7 +28,8 @@ const lookForTargetElement = (checkingElement: HTMLElement): HTMLElement | null 
 
 /** Класс-обработчик события tap(click) на странице */
 export class ClickEventService extends BaseEvent {
-  /** Зарегистрированный при инициализации экземпляра event listener на всем document.
+  /**
+   * Зарегистрированный при инициализации экземпляра event listener на всем document.
    * При событии click на странице проверяет, был ли установлен у targetElement data-атрибут
    * data-event-type="tap". Если был, проверяет, находится ли элемент внутри блока: есть ли у какого-либо родительского
    * элемента значение data-block-id. Если условия соблюдены, собирает информацию об элементы с помощью функций
@@ -38,7 +39,8 @@ export class ClickEventService extends BaseEvent {
    *     ...this.getPageData(),
    *     ...getItemInfo(...),
    * })
-   * */
+   *
+   */
   private readonly listener: (e: MouseEvent) => void;
 
   getPageData: () => PageStateData;
@@ -48,8 +50,10 @@ export class ClickEventService extends BaseEvent {
     window.document.removeEventListener('click', this.listener);
   };
 
-  /** При создании экземпляра класса добавляет this.listener на событие 'click' на document
-   *  */
+  /**
+   * При создании экземпляра класса добавляет this.listener на событие 'click' на document
+   *
+   */
   constructor(getPageData: () => PageStateData) {
     super({ event: 'tap', type: 'type_click' });
     this.getPageData = getPageData;

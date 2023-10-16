@@ -1,4 +1,4 @@
-export {ClickEventService, ShowEventService, ScreenOpenEventService, setup as setupOnEventSend} from './events';
-export { CurrentStateStorage, setUpAnalyticsStorage, type PageStateData, type PlainDataKey } from './storage';
+export { ClickEventService, ScreenOpenEventService, setup as setupOnEventSend, ShowEventService } from './events';
+export { type PageStateData, type PlainDataKey, CurrentStateStorage, setUpAnalyticsStorage } from './storage';
 export * from './types';
 export * from './utils';

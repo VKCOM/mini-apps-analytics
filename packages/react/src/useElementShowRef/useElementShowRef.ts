@@ -13,7 +13,8 @@ import { analyticsContext } from '../context';
  *
  * Зависимость необходима, например, при открытии/закрытии модальных страниц - это событие считается полноценной
  * сменой страницы и события show должны отрабатывать заново, при закрытии модальной страницы
- * */
+ *
+ */
 export const useElementShowRef = <T extends HTMLElement>(): ((el: T) => void) => {
   const unregisterCbRef = useRef<() => void>();
   const elementRef = useRef<T>();

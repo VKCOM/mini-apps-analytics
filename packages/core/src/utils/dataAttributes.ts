@@ -1,4 +1,4 @@
-import {CustomData, ID} from '../types';
+import { CustomData, ID } from '../types';
 
 export const dataBlockIdKey = 'data-block-id';
 export const dataBlockNameKey = 'data-block-name';
@@ -9,7 +9,8 @@ export const dataBlockNameKey = 'data-block-name';
  *
  * @example Модалка/страница конкретного товара/акции - базовый пример листового блока: вся страница является представлением
  * единсвтенной сущности
- * */
+ *
+ */
 export const dataBlockIsLeaf = 'data-block-is-leaf';
 
 export const dataBlockLoading = 'data-block-is-loading-content';
@@ -30,9 +31,9 @@ export const dataEventTypeKey = 'data-event-type';
 export const dataTapEventValue = 'tap';
 
 export type ItemDataAttributes = {
-    [dataItemIdKey]: ID;
-    [dataItemNameKey]?: string;
-}
+  [dataItemIdKey]: ID;
+  [dataItemNameKey]?: string;
+};
 
 /** Функция-хелпер для создания набора data-атрибутов для элемента */
 export const getItemParameters = (id: ID, name?: string): ItemDataAttributes =>
@@ -46,14 +47,20 @@ export const getItemParameters = (id: ID, name?: string): ItemDataAttributes =>
       };
 
 export type TappableItemDataAttributes = ItemDataAttributes & {
-    [dataEventTypeKey]: 'tap',
-    /** Любые дополнительные данные, которые сохраняются в DOM-дереве. Внутри - Partial<CustomData> */
-    'data-json'?: string;
-}
+  [dataEventTypeKey]: 'tap';
+  /** Любые дополнительные данные, которые сохраняются в DOM-дереве. Внутри - Partial<CustomData> */
+  'data-json'?: string;
+};
 
-/** Функция-хелпер для создания набора data-атрибутов для элемента, по которому собирается аналитика
- * по tap событию */
-export const getTappableItemParameters = (id: ID, name?: string, data?: Partial<CustomData>): TappableItemDataAttributes =>
+/**
+ * Функция-хелпер для создания набора data-атрибутов для элемента, по которому собирается аналитика
+ * по tap событию
+ */
+export const getTappableItemParameters = (
+  id: ID,
+  name?: string,
+  data?: Partial<CustomData>
+): TappableItemDataAttributes =>
   data
     ? {
         ...getItemParameters(id, name),

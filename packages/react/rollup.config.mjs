@@ -21,7 +21,7 @@ const getPlugins = (tsDeclaration = false) => [
                         declaration: true,
                         declarationDir: 'dist/types',
                     },
-                    exclude: ['**/dist', '**/*.test.ts'],
+                    exclude: ['**/dist', '**/*.test.ts', '**/example'],
                 },
             }
             : {},

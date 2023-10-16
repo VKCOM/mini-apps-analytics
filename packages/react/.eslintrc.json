@@ -1,0 +1,71 @@
+{
+  "extends": ["@vkontakte/eslint-config/typescript/react", "prettier"],
+  "globals": {
+    "React": true,
+    "JSX": true,
+    "Promise": true,
+    "Set": true,
+    "Map": true,
+    "NodeJS": true
+  },
+  "root": true,
+  "plugins": ["workspaces", "simple-import-sort", "prettier"],
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "restParams": true,
+      "spread": true
+    }
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "jest": true
+  },
+  "rules": {
+    "react/jsx-indent": "warn",
+    "react/jsx-indent-props": "warn",
+    "jsx-quotes": "warn",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "off",
+    "prettier/prettier": ["error", {
+      "semi": true,
+      "singleQuote": true,
+      "printWidth": 120,
+      "useTabs": false,
+      "tabWidth": 2
+    }],
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
+    "@typescript-eslint/no-floating-promises": "off",
+    "@typescript-eslint/explicit-member-accessibility": "off",
+    "@typescript-eslint/no-unnecessary-condition": "off",
+    "@typescript-eslint/no-magic-numbers": "off",
+    "@typescript-eslint/camelcase": "off",
+    "@typescript-eslint/no-extra-parens": "off",
+    "@typescript-eslint/class-name-casing": "off",
+    "@typescript-eslint/prefer-string-starts-ends-with": "off",
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/indent": "off",
+    "no-multiple-empty-lines": "warn",
+    "spaced-comment": "warn",
+    "comma-dangle": ["error", "always-multiline"],
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": ["warn", { "varsIgnorePattern": "^_", "argsIgnorePattern": "^_" }],
+    "space-in-parens": ["error", "never"],
+    "@typescript-eslint/await-thenable": "off",
+    "@typescript-eslint/no-misused-promises": "off",
+    "@typescript-eslint/unbound-method": "off",
+    "@typescript-eslint/consistent-type-assertions": "off",
+    "object-curly-spacing": ["error", "always"],
+    "array-bracket-spacing": ["error", "never"],
+    "computed-property-spacing": ["error", "never"],
+    "space-before-blocks": "error",
+    "comma-spacing": ["error", { "before": false, "after": true }],
+    "multiline-comment-style": ["error", "starred-block"],
+    "no-inline-comments": "error",
+    "line-comment-position": ["error", { "position": "above" }]
+  }
+}
