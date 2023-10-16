@@ -22,5 +22,5 @@
       "@vkontakte/mini-apps-analytics": ["./packages/core"]
     }
   },
-  "exclude": ["**/dist", "**/node_modules"]
+  "exclude": ["**/dist", "**/node_modules", "**/example"]
 }
