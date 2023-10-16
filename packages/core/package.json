@@ -17,7 +17,8 @@
   ],
   "scripts": {
     "watch": "yarn run --top-level rollup -c -w",
-    "build": "NODE_ENV=production yarn run --top-level rollup -c",
+    "lint": "eslint ./src --quiet --ext .tsx --ext .ts",
+    "build": "yarn build && NODE_ENV=production yarn run --top-level rollup -c",
     "prepack": "yarn run build",
     "test": "yarn run --top-level jest --config ../../jest.config.js",
     "docs:generate": "typedoc --readme none --plugin typedoc-plugin-markdown --out ./docs ./src/index.ts "
@@ -26,5 +27,9 @@
     "type": "git",
     "url": "",
     "directory": "packages/core"
+  },
+  "devDependencies": {
+    "@typescript-eslint/parser": "^6.7.5",
+    "eslint-import-resolver-typescript": "^3.6.1"
   }
 }
