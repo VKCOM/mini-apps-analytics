@@ -1,6 +1,47 @@
 import { MutableRefObject, useEffect, useRef } from 'react';
 import { CurrentStateStorage, getItemInfo, ID } from '@vkontakte/mini-apps-analytics';
 
+/**
+ * Необходим при рендере динамически подгружаемых элементов на странице.
+ * В случае, если контент статичен, простой вызов метода CurrentStateStorage.registerExistingValues
+ * зарегистрирует существующие на странице значения.
+ *
+ * @param id Для упрощения работы рантайма, необходимо передать id блока, внутри которого находится элемент
+ * @returns React.ref для регистрации элемента внутри блока.
+ *
+ * @example
+ * import { useState } from 'react';
+ * import { getBlockParameters, getItemParameters } from '@vkontakte/mini-apps-analytics';
+ * import { useBlockRef, useItemRef } from '@vkontakte/mini-apps-analytics-react'
+ *
+ * const Item: React.FC<{blockId: string}> = (props) => {
+ *  const itemRef = useItemRef<HTMLBlockElement>(props.)blockId;
+ *  return <div ref={itemRef} {...getItemParameters('customItemId')}>custom item content</div>
+ * }
+ *
+ * const BlockElement = () => {
+ * const [isLoading, setIsLoading] = useState(true);
+ *  useEffect(() => {
+ *    setTimeout(() => {setIsLoading(false)}, 1000)
+ *  }, [])
+ *
+ *   return (
+ *     <div {...getBlockParameters({ id: 'blockId', entityType: 'customItemEntity', name: 'custom block name' })}>
+ *       {!isLoading && <div blockId="blockId" />}
+ *     </div>
+ *   )
+ * }
+ *
+ * // После вызова setIsLoading(false) установит в CurrentStateStorage.data: {
+ * // ...,
+ * // blocks: [..., {
+ * //   id: 'blockId',
+ * //   name: 'custom block name',
+ * //   entityType: 'customItemEntity',
+ * //   items: ['customItemId']
+ * // }]
+ * // }
+ * */
 export const useItemRef = <T extends HTMLElement>(id: ID): MutableRefObject<T | null> => {
   const itemRef = useRef<T>(null);
 

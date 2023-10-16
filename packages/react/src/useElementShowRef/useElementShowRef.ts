@@ -2,10 +2,22 @@ import { useCallback, useContext, useEffect, useRef } from 'react';
 
 import { analyticsContext } from '../context';
 
+/**
+ * Регистрирует IntersectionObserver на элементе с помощью вызова ShowEventService.register.
+ * При анмаунте элемента отписывается от IntersectionObserver.
+ *
+ * Зависит от значения analyticsContext.showEventService:
+ *
+ * - analyticsContext.showEventService === false - отписывается от IntersectionObserver
+ * - analyticsContext.showEventService === true - пощдписывается от IntersectionObserver
+ *
+ * Зависимость необходима, например, при открытии/закрытии модальных страниц - это событие считается полноценной
+ * сменой страницы и события show должны отрабатывать заново, при закрытии модальной страницы
+ * */
 export const useElementShowRef = <T extends HTMLElement>(): ((el: T) => void) => {
   const unregisterCbRef = useRef<() => void>();
   const elementRef = useRef<T>();
-  const { showEventService } = useContext(analyticsContext);
+  const { showEventService, isShowElementEventActive } = useContext(analyticsContext);
 
   /* Сохраняем реф на элемент */
   const register = useCallback((el: T) => {
@@ -19,7 +31,7 @@ export const useElementShowRef = <T extends HTMLElement>(): ((el: T) => void) =>
      * блоках еще не актуализирована в хранилище состояния страницы. Дожидаемся окончания анимации
      */
     setTimeout(() => {
-      if (elementRef.current) {
+      if (isShowElementEventActive && elementRef.current) {
         unregisterCbRef.current = showEventService.register(elementRef.current);
       }
     }, 500);
@@ -27,7 +39,7 @@ export const useElementShowRef = <T extends HTMLElement>(): ((el: T) => void) =>
     return () => {
       unregisterCbRef.current && unregisterCbRef.current();
     };
-  }, [register, showEventService]);
+  }, [register, showEventService, isShowElementEventActive]);
 
   return register;
 };

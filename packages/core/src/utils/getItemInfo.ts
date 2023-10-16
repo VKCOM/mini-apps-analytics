@@ -1,7 +1,16 @@
-import { CustomData } from '../types';
+import {CustomData, ID} from '../types';
 import { dataItemIdKey, dataItemNameKey } from './dataAttributes';
 
-export const getItemInfo = <B extends HTMLElement, T extends HTMLElement>(block: B | null, targetItem: T) => {
+export type HTMLItemInfo = {
+  /** ID элемента, заданый через data-атрибут data-item-id */
+  actionElementId: ID;
+  /** Порядковый номер элемента в блоке, внутри которого он находится. -1, если элемент не найден в блоке */
+  actionElementIndex: number;
+  /** Имя блока элемента, заданое через data-атрибут data-item-name */
+  actionElementName?: string
+}
+
+export const getItemInfo = <B extends HTMLElement, T extends HTMLElement>(block: B | null, targetItem: T): HTMLItemInfo & Partial<CustomData> => {
   const allItems: Element[] = block ? Array.from(block.querySelectorAll(`[${dataItemIdKey}]`)) : [];
 
   const actionElementId = targetItem.getAttribute(dataItemIdKey) || '';
@@ -9,7 +18,7 @@ export const getItemInfo = <B extends HTMLElement, T extends HTMLElement>(block:
   const actionElementName = targetItem.getAttribute(dataItemNameKey) || targetItem.innerText;
   const data = targetItem.getAttribute('data-json');
 
-  let jsonData: CustomData = {};
+  let jsonData: Partial<CustomData> = {};
   try {
     jsonData = data ? JSON.parse(data) : jsonData;
   } finally {

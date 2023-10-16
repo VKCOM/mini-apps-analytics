@@ -1,5 +1,6 @@
 export type ID = string | number;
 
+/** Общая для всех миниприложений информация, необходимая для сбора аналитики */
 export type PageData = {
   /**
    * С какой страницы перешли (всегда внутренний роутинг или vk_ref)
@@ -20,6 +21,6 @@ export type PageData = {
   actionBlockId?: string;
   actionElementIndex?: number;
   actionElementName?: string;
-  actionElementId?: string;
+  actionElementId?: ID;
   actionEntityType?: string;
 };
