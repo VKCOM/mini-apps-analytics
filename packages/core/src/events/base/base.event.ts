@@ -12,7 +12,8 @@ export type SendEvent = (eventData: EventData & Record<any, any>) => Promise<voi
 /**
  * @description Базовый класс события. Все события наследуются от него.
  * Определяет только сохранение параметров состояния и метод BaseEvent.prototype.send для обработки отправки события
- * */
+ *
+ */
 export class BaseEvent {
   static sendEvent: SendEvent = (data) => {
     console.log(`--- event `, data.event, data);
@@ -27,7 +28,8 @@ export class BaseEvent {
 
   /**
    * @description метод отправки события, вызываемый для всех дочерних классов
-   * */
+   *
+   */
   send = (data: Omit<EventData, 'event' | 'type'>) => {
     const eventData = { ...this.params, clientTime: data.clientTime || new Date(), ...data };
     return BaseEvent.sendEvent(eventData);

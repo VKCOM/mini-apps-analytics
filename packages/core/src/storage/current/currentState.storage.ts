@@ -1,6 +1,6 @@
 import { ID } from '../../types';
-import { PageStateData, PlainDataKey } from '../types';
 import { dataBlockIdKey, dataItemIdKey, storedValueTypeKey, storedValueValueKey } from '../../utils';
+import { PageStateData, PlainDataKey } from '../types';
 
 const defaultData: PageStateData = {
   blocks: [],
@@ -25,14 +25,16 @@ export class CurrentStateStorage {
   /** Ключи значений в хранилище, которые сохраняются даже после вызова методов CurrentStateStorage.cleanUp и CurrentStateStorage.setPage */
   static storedKeys: Array<keyof PageStateData> = [];
 
-  /** Метод для установки значения screenName.
+  /**
+   * Метод для установки значения screenName.
    *  При вызове:
    *
    *  - устанавливает переданный screenName
    *  - обнуляет хранимое значение CurrentStateStorage.data, при этом
    *  - сохраняет значение launchUrl
    *  - сохраняет ранее записанные данные для значений, указанных в CurrentStateStorage.storeKeys
-   *  */
+   *
+   */
   static setPage = (screenName: string) => {
     const newData: PageStateData = {
       ...defaultData,
@@ -55,8 +57,10 @@ export class CurrentStateStorage {
     CurrentStateStorage.data[field] = value;
   };
 
-  /** Добавляет информацию о переданном блоке в CurrentStateStorage.data.block.
-   *  Если блок с таким id уже зарегистрирован, дважды блок добавлен не будет */
+  /**
+   * Добавляет информацию о переданном блоке в CurrentStateStorage.data.block.
+   *  Если блок с таким id уже зарегистрирован, дважды блок добавлен не будет
+   */
   static registerBlock = (block: { id: ID; name?: string; entityType?: string; items?: ID[] }) => {
     if (CurrentStateStorage.data.blocks.findIndex(({ id }) => id === block.id) !== -1) {
       return;
@@ -65,8 +69,10 @@ export class CurrentStateStorage {
     CurrentStateStorage.data.blocks.push({ ...block, items: block.items || [] });
   };
 
-  /** Добавляет информацию в CurrentStateStorage.data.block[blockId] об элементе.
-   * Если в блоке уже существует такой элемент, дважды элемент добавлен не будет */
+  /**
+   * Добавляет информацию в CurrentStateStorage.data.block[blockId] об элементе.
+   * Если в блоке уже существует такой элемент, дважды элемент добавлен не будет
+   */
   static addItemByBlockId = (blockId: ID, item: { id: ID; name?: string }) => {
     const block = CurrentStateStorage.data.blocks.find(({ id }) => id === blockId);
 
@@ -82,13 +88,15 @@ export class CurrentStateStorage {
     return CurrentStateStorage.data[key];
   };
 
-  /** Метод для сброса текущих значений в CurrentStateStorage.data.
+  /**
+   * Метод для сброса текущих значений в CurrentStateStorage.data.
    *  При вызове:
    *
    *  - обнуляет хранимое значение CurrentStateStorage.data, при этом
    *  - сохраняет значение launchUrl
    *  - сохраняет ранее записанные данные для значений, указанных в CurrentStateStorage.storeKeys
-   *  */
+   *
+   */
   static cleanUp = () => {
     CurrentStateStorage.data.blocks.length = 0;
     const newData: PageStateData = {
@@ -120,10 +128,12 @@ export class CurrentStateStorage {
   /** Селектор корневого элемента модальной страницы, откуда будут собираться данные */
   static modalRootSelector = `.vkuiModalRoot`;
 
-  /** Собирает существующую информацию на странице на основе data-атрибутов (см. документацию по поддерживаемым data-атрибутам )
+  /**
+   * Собирает существующую информацию на странице на основе data-атрибутов (см. документацию по поддерживаемым data-атрибутам )
    *
    * @param shouldLookIntoModal - собирать ли инфомарцию по странице в панели или в модальной странице
-   * */
+   *
+   */
   static registerExistingValues = (shouldLookIntoModal?: boolean) => {
     call(() => {
       const panelBlocksSelectors = CurrentStateStorage.getSelectorFromActivePanel(`[${dataBlockIdKey}]`);
@@ -144,7 +154,7 @@ export class CurrentStateStorage {
             items:
               item.dataset.blockIsLeaf === 'true'
                 ? [item.dataset.blockId]
-                : staticItems.map((item) => item.dataset.itemId),
+                : staticItems.map((staticItem) => staticItem.dataset.itemId),
           };
         })
         .filter((item) => item.id) as PageStateData['blocks'];
