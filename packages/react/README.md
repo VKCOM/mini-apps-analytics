@@ -15,7 +15,7 @@ React-хуки для работы с пакетом @vkontakte/mini-apps-analyt
 
 ## Зависимости
 
-Зависит от [core пакета](../react) @vkontakte/mini-apps-analytics
+Зависит от [core пакета](../core) @vkontakte/mini-apps-analytics
 
 ## API Документация
 
