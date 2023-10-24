@@ -1,14 +1,5 @@
 # @vkontakte/mini-apps-analytics
 
-## Оперделения
-
-> Аналитическая информация: информация о
-> - Семантических блоках страницы
-> - Элементов внутри блоков
-> - Метаинформации об элементах (entityType/name/etc)
-> - Дополнительная информация, устанавливаемая в рантайме разработчиком с помощью вызова метода
->   [CurrentStateStorage.addPlainData](./src/storage/current/currentState.storage.ts#L44)
-
 ## Overview
 
 Core-пакет для:
