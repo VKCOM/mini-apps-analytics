@@ -1,0 +1,55 @@
+name: 'Publish'
+
+on:
+  workflow_dispatch:
+    inputs:
+      package_name:
+        description: "package's name:"
+        type: choice
+        options:
+          - '@vkontakte/mini-apps-analytics'
+          - '@vkontakte/mini-apps-analytics-react'
+        required: true
+      new_version:
+        description: 'version type:'
+        type: choice
+        default: 'minor'
+        options:
+          - patch
+          - minor
+          - major
+        required: true
+
+run-name: Publish ${{ github.event.inputs.package_name }} ${{ inputs.new_version }}
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.DEVTOOLS_GITHUB_TOKEN }}
+
+      - name: Setting up the repository environment
+        uses: ./.github/actions/publish-workflow-1-setup
+
+      - name: Bump version
+        id: updated_versions_info
+        uses: ./.github/actions/publish-workflow-2-bump-version
+        with:
+          package_name: ${{ github.event.inputs.package_name }}
+          new_version: ${{ github.event.inputs.new_version }}
+
+      - name: Run pre-publish checks
+        uses: ./.github/actions/publish-workflow-3-validation
+
+      - name: Complete publish
+        uses: ./.github/actions/publish-workflow-4-complete
+        with:
+          branch: ${{ github.ref }}
+          prev_version: ${{ steps.updated_versions_info.outputs.prev_version }}
+          next_version: ${{ steps.updated_versions_info.outputs.next_version }}
+          package_name: ${{ github.event.inputs.package_name }}
+          token: ${{ secrets.DEVTOOLS_GITHUB_TOKEN }}
+          npm_token: ${{ secrets.NPMJS_PUBLISH_TOKEN }}
