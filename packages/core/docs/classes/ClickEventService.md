@@ -48,7 +48,7 @@ BaseEvent.constructor
 
 #### Defined in
 
-events/clickEvent/click.event.ts:53
+[events/clickEvent/click.event.ts:57](https://github.com/VKCOM/mini-apps-analytics/blob/c7ae39f/packages/core/src/events/clickEvent/click.event.ts#L57)
 
 ## Properties
 
@@ -66,7 +66,7 @@ events/clickEvent/click.event.ts:53
 
 #### Defined in
 
-events/clickEvent/click.event.ts:44
+[events/clickEvent/click.event.ts:46](https://github.com/VKCOM/mini-apps-analytics/blob/c7ae39f/packages/core/src/events/clickEvent/click.event.ts#L46)
 
 ___
 
@@ -101,7 +101,7 @@ this.send({
 
 #### Defined in
 
-events/clickEvent/click.event.ts:42
+[events/clickEvent/click.event.ts:44](https://github.com/VKCOM/mini-apps-analytics/blob/c7ae39f/packages/core/src/events/clickEvent/click.event.ts#L44)
 
 ___
 
@@ -115,7 +115,7 @@ BaseEvent.params
 
 #### Defined in
 
-events/base/base.event.ts:22
+[events/base/base.event.ts:23](https://github.com/VKCOM/mini-apps-analytics/blob/c7ae39f/packages/core/src/events/base/base.event.ts#L23)
 
 ___
 
@@ -129,7 +129,7 @@ BaseEvent.sendEvent
 
 #### Defined in
 
-events/base/base.event.ts:17
+[events/base/base.event.ts:18](https://github.com/VKCOM/mini-apps-analytics/blob/c7ae39f/packages/core/src/events/base/base.event.ts#L18)
 
 ## Methods
 
@@ -143,7 +143,7 @@ events/base/base.event.ts:17
 
 #### Defined in
 
-events/clickEvent/click.event.ts:47
+[events/clickEvent/click.event.ts:49](https://github.com/VKCOM/mini-apps-analytics/blob/c7ae39f/packages/core/src/events/clickEvent/click.event.ts#L49)
 
 ___
 
@@ -171,4 +171,4 @@ BaseEvent.send
 
 #### Defined in
 
-events/base/base.event.ts:31
+[events/base/base.event.ts:33](https://github.com/VKCOM/mini-apps-analytics/blob/c7ae39f/packages/core/src/events/base/base.event.ts#L33)

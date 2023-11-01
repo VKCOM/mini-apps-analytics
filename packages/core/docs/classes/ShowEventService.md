@@ -16,15 +16,12 @@
 
 ### Properties
 
-- [disabled](ShowEventService.md#disabled)
 - [getPageData](ShowEventService.md#getpagedata)
 - [params](ShowEventService.md#params)
 - [sendEvent](ShowEventService.md#sendevent)
 
 ### Methods
 
-- [disable](ShowEventService.md#disable)
-- [enable](ShowEventService.md#enable)
 - [register](ShowEventService.md#register)
 - [send](ShowEventService.md#send)
 
@@ -46,19 +43,9 @@ BaseEvent.constructor
 
 #### Defined in
 
-events/show/show.event.ts:29
+[events/show/show.event.ts:20](https://github.com/VKCOM/mini-apps-analytics/blob/c7ae39f/packages/core/src/events/show/show.event.ts#L20)
 
 ## Properties
-
-### disabled
-
-• `Private` **disabled**: `boolean` = `false`
-
-#### Defined in
-
-events/show/show.event.ts:19
-
-___
 
 ### getPageData
 
@@ -74,7 +61,7 @@ ___
 
 #### Defined in
 
-events/show/show.event.ts:18
+[events/show/show.event.ts:18](https://github.com/VKCOM/mini-apps-analytics/blob/c7ae39f/packages/core/src/events/show/show.event.ts#L18)
 
 ___
 
@@ -88,7 +75,7 @@ BaseEvent.params
 
 #### Defined in
 
-events/base/base.event.ts:22
+[events/base/base.event.ts:23](https://github.com/VKCOM/mini-apps-analytics/blob/c7ae39f/packages/core/src/events/base/base.event.ts#L23)
 
 ___
 
@@ -102,37 +89,9 @@ BaseEvent.sendEvent
 
 #### Defined in
 
-events/base/base.event.ts:17
+[events/base/base.event.ts:18](https://github.com/VKCOM/mini-apps-analytics/blob/c7ae39f/packages/core/src/events/base/base.event.ts#L18)
 
 ## Methods
-
-### disable
-
-▸ **disable**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-events/show/show.event.ts:21
-
-___
-
-### enable
-
-▸ **enable**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-events/show/show.event.ts:25
-
-___
 
 ### register
 
@@ -178,7 +137,7 @@ this.send({
 
 #### Defined in
 
-events/show/show.event.ts:49
+[events/show/show.event.ts:42](https://github.com/VKCOM/mini-apps-analytics/blob/c7ae39f/packages/core/src/events/show/show.event.ts#L42)
 
 ___
 
@@ -206,4 +165,4 @@ BaseEvent.send
 
 #### Defined in
 
-events/base/base.event.ts:31
+[events/base/base.event.ts:33](https://github.com/VKCOM/mini-apps-analytics/blob/c7ae39f/packages/core/src/events/base/base.event.ts#L33)

@@ -38,7 +38,7 @@
 
 #### Defined in
 
-packages/react/src/context/analytics.context.tsx:8
+[packages/react/src/context/analytics.context.tsx:4](https://github.com/VKCOM/mini-apps-analytics/blob/c7ae39f/packages/react/src/context/analytics.context.tsx#L4)
 
 ___
 
@@ -57,7 +57,7 @@ ___
 
 #### Defined in
 
-packages/react/src/usePageAnalytics/usePageAnalytics.ts:9
+[packages/react/src/usePageAnalytics/usePageAnalytics.ts:8](https://github.com/VKCOM/mini-apps-analytics/blob/c7ae39f/packages/react/src/usePageAnalytics/usePageAnalytics.ts#L8)
 
 ## Variables
 
@@ -67,13 +67,13 @@ packages/react/src/usePageAnalytics/usePageAnalytics.ts:9
 
 #### Defined in
 
-packages/react/src/context/analytics.context.tsx:29
+[packages/react/src/context/analytics.context.tsx:31](https://github.com/VKCOM/mini-apps-analytics/blob/c7ae39f/packages/react/src/context/analytics.context.tsx#L31)
 
 ## Functions
 
 ### AnalyticsContextProvider
 
-▸ **AnalyticsContextProvider**(`props`): `ReactNode`
+▸ **AnalyticsContextProvider**(`props`): ``null`` \| `ReactElement`<`any`, `string` \| `JSXElementConstructor`<`any`\>\>
 
 **NOTE**: Exotic components are not callable.
 
@@ -85,11 +85,11 @@ packages/react/src/context/analytics.context.tsx:29
 
 #### Returns
 
-`ReactNode`
+``null`` \| `ReactElement`<`any`, `string` \| `JSXElementConstructor`<`any`\>\>
 
 #### Defined in
 
-node_modules/@types/react/index.d.ts:427
+node_modules/@types/react/ts5.0/index.d.ts:396
 
 ___
 
@@ -120,7 +120,7 @@ ___
 
 #### Defined in
 
-packages/react/src/useAddPlainData/useAddPlainData.tsx:6
+[packages/react/src/useAddPlainData/useAddPlainData.tsx:8](https://github.com/VKCOM/mini-apps-analytics/blob/c7ae39f/packages/react/src/useAddPlainData/useAddPlainData.tsx#L8)
 
 ___
 
@@ -172,7 +172,7 @@ const BlockElement = () => {
 
 #### Defined in
 
-packages/react/src/useBlockRef/useBlockRef.ts:34
+[packages/react/src/useBlockRef/useBlockRef.ts:34](https://github.com/VKCOM/mini-apps-analytics/blob/c7ae39f/packages/react/src/useBlockRef/useBlockRef.ts#L34)
 
 ___
 
@@ -215,7 +215,7 @@ ___
 
 #### Defined in
 
-packages/react/src/useElementShowRef/useElementShowRef.ts:17
+[packages/react/src/useElementShowRef/useElementShowRef.ts:18](https://github.com/VKCOM/mini-apps-analytics/blob/c7ae39f/packages/react/src/useElementShowRef/useElementShowRef.ts#L18)
 
 ___
 
@@ -283,7 +283,7 @@ const [isLoading, setIsLoading] = useState(true);
 
 #### Defined in
 
-packages/react/src/useElementRef/useElementRef.ts:45
+[packages/react/src/useElementRef/useElementRef.ts:46](https://github.com/VKCOM/mini-apps-analytics/blob/c7ae39f/packages/react/src/useElementRef/useElementRef.ts#L46)
 
 ___
 
@@ -311,4 +311,4 @@ ___
 
 #### Defined in
 
-packages/react/src/usePageAnalytics/usePageAnalytics.ts:46
+[packages/react/src/usePageAnalytics/usePageAnalytics.ts:54](https://github.com/VKCOM/mini-apps-analytics/blob/c7ae39f/packages/react/src/usePageAnalytics/usePageAnalytics.ts#L54)
