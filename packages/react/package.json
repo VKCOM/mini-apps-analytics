@@ -25,7 +25,7 @@
   },
   "devDependencies": {
     "@types/react": "^18.2.13",
-    "@vkontakte/mini-apps-analytics": "^0.0.1",
+    "@vkontakte/mini-apps-analytics": "workspace:^",
     "eslint-config-react-app": "^7.0.1",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-react": "^7.33.2",
