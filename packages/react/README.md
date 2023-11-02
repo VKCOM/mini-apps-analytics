@@ -15,11 +15,11 @@ React-хуки для работы с пакетом @vkontakte/mini-apps-analyt
 
 ## Зависимости
 
-Зависит от [core пакета](../core) @vkontakte/mini-apps-analytics
+Зависит от [core пакета](https://github.com/VKCOM/mini-apps-analytics/tree/master/packages/core) @vkontakte/mini-apps-analytics
 
 ## API Документация
 
-API Документация находится [здесь](./docs/README.md)
+API Документация находится [здесь](https://github.com/VKCOM/mini-apps-analytics/blob/master/packages/react/docs/README.md)
 
 ## Установка
 
@@ -29,4 +29,4 @@ API Документация находится [здесь](./docs/README.md)
 
 ## Использования и инициализации аналитики
 
-С примером использования и инициализации можно ознакомиться [здесь](./example/analytics.example.tsx)
+С примером использования и инициализации можно ознакомиться [здесь](https://github.com/VKCOM/mini-apps-analytics/blob/master/packages/react/example/analytics.example.tsx)
