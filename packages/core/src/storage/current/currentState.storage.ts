@@ -101,6 +101,8 @@ export class CurrentStateStorage {
     CurrentStateStorage.data.blocks.length = 0;
     const newData: PageStateData = {
       ...defaultData,
+      screenName: CurrentStateStorage.data.screenName,
+      source: CurrentStateStorage.data.source,
       launchUrl: CurrentStateStorage.data.launchUrl,
     };
 
