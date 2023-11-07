@@ -19,7 +19,9 @@
 - [useAddPlainData](README.md#useaddplaindata)
 - [useBlockRef](README.md#useblockref)
 - [useElementShowRef](README.md#useelementshowref)
+- [useInitLaunchAnalyticsValues](README.md#useinitlaunchanalyticsvalues)
 - [useItemRef](README.md#useitemref)
+- [useLaunchAnalytics](README.md#uselaunchanalytics)
 - [usePageAnalytics](README.md#usepageanalytics)
 
 ## Type Aliases
@@ -33,12 +35,13 @@
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `isShowElementEventActive` | `boolean` | Флаг для отключения срабатывания show события внутри useElementShowRef. Необходим, например, при открытии/закрытии модальных страниц - это событие считается полноценной сменой страницы и события show должны отрабатывать заново, при закрытии модальной страницы, притом, что открытие модальной страницы не влечет отпарвку события show |
+| `launchEventService` | `LaunchEventService` | - |
 | `screenOpenEventService` | `ScreenOpenEventService` | Инстанс класса ShowEventService. При передаче инстанса есть возможность сконфигурировать отправку screen_open события разными способами, настроив разные контексты react'a |
 | `showEventService` | `ShowEventService` | Инстанс класса ShowEventService. При передаче инстанса есть возможность сконфигурировать отправку show события разными способами, настроив разные контексты react'a |
 
 #### Defined in
 
-[packages/react/src/context/analytics.context.tsx:4](https://github.com/VKCOM/mini-apps-analytics/blob/abdc513/packages/react/src/context/analytics.context.tsx#L4)
+[packages/react/src/context/analytics.context.tsx:9](https://github.com/VKCOM/mini-apps-analytics/blob/8391a83/packages/react/src/context/analytics.context.tsx#L9)
 
 ___
 
@@ -57,7 +60,7 @@ ___
 
 #### Defined in
 
-[packages/react/src/usePageAnalytics/usePageAnalytics.ts:8](https://github.com/VKCOM/mini-apps-analytics/blob/abdc513/packages/react/src/usePageAnalytics/usePageAnalytics.ts#L8)
+[packages/react/src/usePageAnalytics/usePageAnalytics.ts:8](https://github.com/VKCOM/mini-apps-analytics/blob/8391a83/packages/react/src/usePageAnalytics/usePageAnalytics.ts#L8)
 
 ## Variables
 
@@ -67,7 +70,7 @@ ___
 
 #### Defined in
 
-[packages/react/src/context/analytics.context.tsx:31](https://github.com/VKCOM/mini-apps-analytics/blob/abdc513/packages/react/src/context/analytics.context.tsx#L31)
+[packages/react/src/context/analytics.context.tsx:38](https://github.com/VKCOM/mini-apps-analytics/blob/8391a83/packages/react/src/context/analytics.context.tsx#L38)
 
 ## Functions
 
@@ -120,7 +123,7 @@ ___
 
 #### Defined in
 
-[packages/react/src/useAddPlainData/useAddPlainData.tsx:8](https://github.com/VKCOM/mini-apps-analytics/blob/abdc513/packages/react/src/useAddPlainData/useAddPlainData.tsx#L8)
+[packages/react/src/useAddPlainData/useAddPlainData.tsx:8](https://github.com/VKCOM/mini-apps-analytics/blob/8391a83/packages/react/src/useAddPlainData/useAddPlainData.tsx#L8)
 
 ___
 
@@ -172,7 +175,7 @@ const BlockElement = () => {
 
 #### Defined in
 
-[packages/react/src/useBlockRef/useBlockRef.ts:34](https://github.com/VKCOM/mini-apps-analytics/blob/abdc513/packages/react/src/useBlockRef/useBlockRef.ts#L34)
+[packages/react/src/useBlockRef/useBlockRef.ts:34](https://github.com/VKCOM/mini-apps-analytics/blob/8391a83/packages/react/src/useBlockRef/useBlockRef.ts#L34)
 
 ___
 
@@ -215,7 +218,26 @@ ___
 
 #### Defined in
 
-[packages/react/src/useElementShowRef/useElementShowRef.ts:18](https://github.com/VKCOM/mini-apps-analytics/blob/abdc513/packages/react/src/useElementShowRef/useElementShowRef.ts#L18)
+[packages/react/src/useElementShowRef/useElementShowRef.ts:18](https://github.com/VKCOM/mini-apps-analytics/blob/8391a83/packages/react/src/useElementShowRef/useElementShowRef.ts#L18)
+
+___
+
+### useInitLaunchAnalyticsValues
+
+▸ **useInitLaunchAnalyticsValues**(): `void`
+
+Хелпер для сохранения параметров на момент запуска приложения.
+
+- сохраняет launchUrl в CurrentStateStorage.data на основе window.location.href (удаляет параметры access_token, vk_access_token_settings и sign)
+- устанавливает первичный source в CurrentStateStorage.data на основе window.location.href.searchParams.get('vkRef')
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[packages/react/src/useInitLaunchAnalyticsValues/useInitLaunchAnalyticsValues.ts:11](https://github.com/VKCOM/mini-apps-analytics/blob/8391a83/packages/react/src/useInitLaunchAnalyticsValues/useInitLaunchAnalyticsValues.ts#L11)
 
 ___
 
@@ -283,7 +305,25 @@ const [isLoading, setIsLoading] = useState(true);
 
 #### Defined in
 
-[packages/react/src/useElementRef/useElementRef.ts:46](https://github.com/VKCOM/mini-apps-analytics/blob/abdc513/packages/react/src/useElementRef/useElementRef.ts#L46)
+[packages/react/src/useElementRef/useElementRef.ts:46](https://github.com/VKCOM/mini-apps-analytics/blob/8391a83/packages/react/src/useElementRef/useElementRef.ts#L46)
+
+___
+
+### useLaunchAnalytics
+
+▸ **useLaunchAnalytics**(): `void`
+
+Хелпер для отслеживания launch события
+
+регистрирует analyticsContext -> launchEventService.registerScreenListener при старте приложения
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[packages/react/src/useLaunchAnalytics/useLaunchAnalytics.ts:11](https://github.com/VKCOM/mini-apps-analytics/blob/8391a83/packages/react/src/useLaunchAnalytics/useLaunchAnalytics.ts#L11)
 
 ___
 
@@ -293,9 +333,7 @@ ___
 
 Хелпер для отслеживания текущего состояния страницы, при навигации по приложению.
 
-- сохраняет launchUrl в CurrentStateStorage.data на основе window.location.href (удаляет параметры access_token, vk_access_token_settings и sign);
-- сохраняет source в CurrentStateStorage.data на основе window.location.href.searchParams.get('vkRef') (удаляет параметры access_token, vk_access_token_settings и sign);
-- регистрирует screenOpenEventService.registerScreenListener при смене страницы
+- регистрирует analyticsContext -> screenOpenEventService.registerScreenListener при смене страницы
 - при изменении зависимостей cleanUpDeps вызывает CurrentStateStorage.cleanUp
 
 #### Parameters
@@ -311,4 +349,4 @@ ___
 
 #### Defined in
 
-[packages/react/src/usePageAnalytics/usePageAnalytics.ts:54](https://github.com/VKCOM/mini-apps-analytics/blob/abdc513/packages/react/src/usePageAnalytics/usePageAnalytics.ts#L54)
+[packages/react/src/usePageAnalytics/usePageAnalytics.ts:52](https://github.com/VKCOM/mini-apps-analytics/blob/8391a83/packages/react/src/usePageAnalytics/usePageAnalytics.ts#L52)

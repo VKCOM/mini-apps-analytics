@@ -1,35 +1,35 @@
-[@vkontakte/mini-apps-analytics](../README.md) / ScreenOpenEventService
+[@vkontakte/mini-apps-analytics](../README.md) / LaunchEventService
 
-# Class: ScreenOpenEventService
+# Class: LaunchEventService
 
 ## Hierarchy
 
 - `BaseEvent`
 
-  ↳ **`ScreenOpenEventService`**
+  ↳ **`LaunchEventService`**
 
 ## Table of contents
 
 ### Constructors
 
-- [constructor](ScreenOpenEventService.md#constructor)
+- [constructor](LaunchEventService.md#constructor)
 
 ### Properties
 
-- [getPageData](ScreenOpenEventService.md#getpagedata)
-- [params](ScreenOpenEventService.md#params)
-- [sendEvent](ScreenOpenEventService.md#sendevent)
+- [getPageData](LaunchEventService.md#getpagedata)
+- [params](LaunchEventService.md#params)
+- [sendEvent](LaunchEventService.md#sendevent)
 
 ### Methods
 
-- [registerScreenListener](ScreenOpenEventService.md#registerscreenlistener)
-- [send](ScreenOpenEventService.md#send)
+- [registerScreenListener](LaunchEventService.md#registerscreenlistener)
+- [send](LaunchEventService.md#send)
 
 ## Constructors
 
 ### constructor
 
-• **new ScreenOpenEventService**(`getPageData`)
+• **new LaunchEventService**(`getPageData`)
 
 #### Parameters
 
@@ -43,7 +43,7 @@ BaseEvent.constructor
 
 #### Defined in
 
-[events/screenOpen/screenOpen.event.ts:7](https://github.com/VKCOM/mini-apps-analytics/blob/8391a83/packages/core/src/events/screenOpen/screenOpen.event.ts#L7)
+[events/launch/launch.event.ts:7](https://github.com/VKCOM/mini-apps-analytics/blob/8391a83/packages/core/src/events/launch/launch.event.ts#L7)
 
 ## Properties
 
@@ -61,7 +61,7 @@ BaseEvent.constructor
 
 #### Defined in
 
-[events/screenOpen/screenOpen.event.ts:6](https://github.com/VKCOM/mini-apps-analytics/blob/8391a83/packages/core/src/events/screenOpen/screenOpen.event.ts#L6)
+[events/launch/launch.event.ts:6](https://github.com/VKCOM/mini-apps-analytics/blob/8391a83/packages/core/src/events/launch/launch.event.ts#L6)
 
 ___
 
@@ -107,7 +107,7 @@ this.send({ ...this.getPageData(), clientTime: time });
 
 #### Defined in
 
-[events/screenOpen/screenOpen.event.ts:18](https://github.com/VKCOM/mini-apps-analytics/blob/8391a83/packages/core/src/events/screenOpen/screenOpen.event.ts#L18)
+[events/launch/launch.event.ts:18](https://github.com/VKCOM/mini-apps-analytics/blob/8391a83/packages/core/src/events/launch/launch.event.ts#L18)
 
 ___
 
