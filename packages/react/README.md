@@ -9,6 +9,8 @@ React-хуки для работы с пакетом @vkontakte/mini-apps-analyt
 - Трекинг блоков на странице (useBlockRef)
 - Трекинг элементов на странице (useElementRef)
 - Трекинг события show для эдемента (useShowRef)
+- Трекинг начальных параметров приложения (useInitLaunchAnalyticsValues)
+- Трекинг события launch (useLaunchAnalytics)
 - Трекинг навигации по приложению (usePageAnalytics)
 - Хук для простого изменения данных в CurrentStateStorage.data (useAddPlainData)
 - React-контекст для установки кастомных конфигураций
