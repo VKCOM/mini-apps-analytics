@@ -4,6 +4,7 @@ import {
   dataBlockLoading,
   getBlockParameters,
   getItemParameters,
+  LaunchEventService,
   ScreenOpenEventService,
   setUpAnalyticsStorage,
   setupOnEventSend,
@@ -14,6 +15,8 @@ import {
   AnalyticsContextValue,
   useAddPlainData,
   useBlockRef,
+  useInitLaunchAnalyticsValues,
+  useLaunchAnalytics,
   useItemRef,
   usePageAnalytics,
   UsePageAnalyticsParams,
@@ -38,16 +41,20 @@ const showEventService = new ShowEventService(() => {
 });
 
 /** Настройка конфигурации ScreenOpenEventService'a для реагирования на событие перехода по страницам */
-export const screenOpenEventService = new ScreenOpenEventService(
+const screenOpenEventService = new ScreenOpenEventService(
   () =>
     /** Отправляем все данные по странице. */
     CurrentStateStorage.data
 );
 
+/** Настройка конфигурации LaunchEventService'a для отправки события launch */
+const launchEventService = new LaunchEventService(() => CurrentStateStorage.data);
+
 const contextValue: AnalyticsContextValue = {
   isShowElementEventActive: true,
   showEventService,
   screenOpenEventService,
+  launchEventService,
 };
 
 setUpAnalyticsStorage({
@@ -112,6 +119,9 @@ const useSetupAnalytics = () => {
     [panelPageName, modalPageName, pageDeps, cleanUpDeps]
   );
 
+  /** Собираем launch и source параметры на старте приложения */
+  useInitLaunchAnalyticsValues();
+  useLaunchAnalytics();
   usePageAnalytics(analyticsConfig);
   useTapAnalytics();
 };
