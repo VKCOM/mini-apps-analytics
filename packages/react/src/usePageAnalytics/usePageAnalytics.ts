@@ -45,9 +45,7 @@ const defaultDeps: string[] = [];
 /**
  * Хелпер для отслеживания текущего состояния страницы, при навигации по приложению.
  *
- * - сохраняет launchUrl в CurrentStateStorage.data на основе window.location.href (удаляет параметры access_token, vk_access_token_settings и sign);
- * - сохраняет source в CurrentStateStorage.data на основе window.location.href.searchParams.get('vkRef') (удаляет параметры access_token, vk_access_token_settings и sign);
- * - регистрирует screenOpenEventService.registerScreenListener при смене страницы
+ * - регистрирует analyticsContext -> screenOpenEventService.registerScreenListener при смене страницы
  * - при изменении зависимостей cleanUpDeps вызывает CurrentStateStorage.cleanUp
  *
  */
@@ -56,24 +54,6 @@ export const usePageAnalytics = (
   isAppReady = true
 ) => {
   const { screenOpenEventService } = useContext(analyticsContext);
-  const url = useMemo(() => new URL(window.location.href), []);
-  const vkRef = url.searchParams.get('vk_ref');
-
-  /** При инициализации приложения устанавливаем launchUrl */
-  useEffect(() => {
-    const url = new URL(window.location.href);
-    url.searchParams.delete('access_token');
-    url.searchParams.delete('vk_access_token_settings');
-    url.searchParams.delete('sign');
-    CurrentStateStorage.addPlainData<'launchUrl'>('launchUrl', url.href);
-  }, []);
-
-  /** Бридж отадет launchParams в промисе, потому нужно обновить состояние реактивно по изменению launchParams  */
-  useEffect(() => {
-    if (vkRef && !CurrentStateStorage.getValue('source')) {
-      CurrentStateStorage.addPlainData<'source'>('source', vkRef);
-    }
-  }, [vkRef]);
 
   const lastModalRef = useRef<string | null>(null);
 
@@ -87,7 +67,7 @@ export const usePageAnalytics = (
   useModalPageAnalytics(currentModalPageName, pageDeps);
   usePanelPageAnalytics(panelPageName, currentModalPageName, pageDeps);
 
-  /** Регистрируем слушателя открытия страница */
+  /** Регистрируем слушателя открытия страницы */
   useLayoutEffect(() => {
     const screenOpenInterval = screenOpenEventService.registerScreenListener();
 
@@ -103,8 +83,8 @@ export const usePageAnalytics = (
    */
   useEffect(() => {
     if (isAppReady) {
-      CurrentStateStorage.registerExistingValues(currentModalPageName !== null);
       CurrentStateStorage.cleanUp();
+      CurrentStateStorage.registerExistingValues(currentModalPageName !== null);
     }
 
     return () => {
@@ -114,8 +94,8 @@ export const usePageAnalytics = (
 
   useEffect(() => {
     if (isAppReady) {
-      CurrentStateStorage.registerExistingValues(currentModalPageName !== null);
       CurrentStateStorage.cleanUp();
+      CurrentStateStorage.registerExistingValues(currentModalPageName !== null);
     }
 
     return () => {

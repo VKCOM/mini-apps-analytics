@@ -1,4 +1,9 @@
-import { CurrentStateStorage, ScreenOpenEventService, ShowEventService } from '@vkontakte/mini-apps-analytics';
+import {
+  CurrentStateStorage,
+  LaunchEventService,
+  ScreenOpenEventService,
+  ShowEventService,
+} from '@vkontakte/mini-apps-analytics';
 import React from 'react';
 
 export type AnalyticsContextValue = {
@@ -20,12 +25,14 @@ export type AnalyticsContextValue = {
    * разными способами, настроив разные контексты react'a
    */
   screenOpenEventService: ScreenOpenEventService;
+  launchEventService: LaunchEventService;
 };
 
 const defaultValue: AnalyticsContextValue = {
   isShowElementEventActive: true,
   showEventService: new ShowEventService(() => CurrentStateStorage.data),
   screenOpenEventService: new ScreenOpenEventService(() => CurrentStateStorage.data),
+  launchEventService: new LaunchEventService(() => CurrentStateStorage.data),
 };
 
 export const analyticsContext = React.createContext<AnalyticsContextValue>(defaultValue);
