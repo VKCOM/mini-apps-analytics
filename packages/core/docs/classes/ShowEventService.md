@@ -43,7 +43,7 @@ BaseEvent.constructor
 
 #### Defined in
 
-[events/show/show.event.ts:20](https://github.com/VKCOM/mini-apps-analytics/blob/3ea3407/packages/core/src/events/show/show.event.ts#L20)
+[events/show/show.event.ts:20](https://github.com/VKCOM/mini-apps-analytics/blob/a3319eb/packages/core/src/events/show/show.event.ts#L20)
 
 ## Properties
 
@@ -61,7 +61,7 @@ BaseEvent.constructor
 
 #### Defined in
 
-[events/show/show.event.ts:18](https://github.com/VKCOM/mini-apps-analytics/blob/3ea3407/packages/core/src/events/show/show.event.ts#L18)
+[events/show/show.event.ts:18](https://github.com/VKCOM/mini-apps-analytics/blob/a3319eb/packages/core/src/events/show/show.event.ts#L18)
 
 ___
 
@@ -75,7 +75,7 @@ BaseEvent.params
 
 #### Defined in
 
-[events/base/base.event.ts:23](https://github.com/VKCOM/mini-apps-analytics/blob/3ea3407/packages/core/src/events/base/base.event.ts#L23)
+[events/base/base.event.ts:23](https://github.com/VKCOM/mini-apps-analytics/blob/a3319eb/packages/core/src/events/base/base.event.ts#L23)
 
 ___
 
@@ -89,7 +89,7 @@ BaseEvent.sendEvent
 
 #### Defined in
 
-[events/base/base.event.ts:18](https://github.com/VKCOM/mini-apps-analytics/blob/3ea3407/packages/core/src/events/base/base.event.ts#L18)
+[events/base/base.event.ts:18](https://github.com/VKCOM/mini-apps-analytics/blob/a3319eb/packages/core/src/events/base/base.event.ts#L18)
 
 ## Methods
 
@@ -137,7 +137,7 @@ this.send({
 
 #### Defined in
 
-[events/show/show.event.ts:42](https://github.com/VKCOM/mini-apps-analytics/blob/3ea3407/packages/core/src/events/show/show.event.ts#L42)
+[events/show/show.event.ts:42](https://github.com/VKCOM/mini-apps-analytics/blob/a3319eb/packages/core/src/events/show/show.event.ts#L42)
 
 ___
 
@@ -165,4 +165,4 @@ BaseEvent.send
 
 #### Defined in
 
-[events/base/base.event.ts:33](https://github.com/VKCOM/mini-apps-analytics/blob/3ea3407/packages/core/src/events/base/base.event.ts#L33)
+[events/base/base.event.ts:33](https://github.com/VKCOM/mini-apps-analytics/blob/a3319eb/packages/core/src/events/base/base.event.ts#L33)
