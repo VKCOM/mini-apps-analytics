@@ -15,6 +15,16 @@
  *  type UnknownValueType = (typeof eventData)['anyFieldYouWant'] // Compilation Error
  * })
  *
+ * @example
+ * // При использовании Typescript v5+ может потребоваться доопределение модуля по прямому пути
+ * import '@vkontakte/mini-apps-analytics/dist/types/src/types/common';
+ * // Важно доопределять конкретный файл
+ * declare module '@vkontakte/mini-apps-analytics/dist/types/src/types/common' {
+ *     export interface CustomData {
+ *         myAwesomeValue: string
+ *     }
+ * }
+ *
  */
 /* Эксопртируем пустой интерфейс для дальнейшего расширения с помощью module augmentation */
 /* eslint-disable-next-line @typescript-eslint/no-empty-interface */

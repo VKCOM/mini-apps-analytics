@@ -24,6 +24,13 @@ import {
 import React, { PropsWithChildren, useEffect, useMemo, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 
+/*
+* В случае Typescript v5+
+* import '@vkontakte/mini-apps-analytics/dist/types/src/types/common';
+* declare module '@vkontakte/mini-apps-analytics/dist/types/src/types/common' {...}
+*
+* */
+
 declare module '@vkontakte/mini-apps-analytics' {
    export interface CustomData {
    myAwesomeStringAppData: string;
