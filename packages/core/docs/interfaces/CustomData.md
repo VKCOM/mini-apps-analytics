@@ -21,3 +21,16 @@ setupOnEventSend((eventData) => {
  type UnknownValueType = (typeof eventData)['anyFieldYouWant'] // Compilation Error
 })
 ```
+
+**`Example`**
+
+```ts
+// При использовании Typescript v5+ может потребоваться доопределение модуля по прямому пути
+import '@vkontakte/mini-apps-analytics/dist/types/src/types/common';
+// Важно доопределять конкретный файл
+declare module '@vkontakte/mini-apps-analytics/dist/types/src/types/common' {
+    export interface CustomData {
+        myAwesomeValue: string
+    }
+}
+```
