@@ -1,5 +1,5 @@
 import { CurrentStateStorage } from '@vkontakte/mini-apps-analytics';
-import { useContext, useEffect, useLayoutEffect, useMemo, useRef } from 'react';
+import { useContext, useLayoutEffect, useRef } from 'react';
 
 import { analyticsContext } from '../context';
 import { useModalPageAnalytics } from './useModalPageAnalytics';
@@ -81,9 +81,8 @@ export const usePageAnalytics = (
    * При старте приложения и смене роута регистрируем доступные на странице блоки.
    * Смотрим на isReady для того, чтобы все динамические блоки из /api/config смогли проинициализироваться
    */
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (isAppReady) {
-      CurrentStateStorage.cleanUp();
       CurrentStateStorage.registerExistingValues(currentModalPageName !== null);
     }
 
@@ -92,9 +91,8 @@ export const usePageAnalytics = (
     };
   }, [panelPageName, isAppReady, currentModalPageName, ...pageDeps]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (isAppReady) {
-      CurrentStateStorage.cleanUp();
       CurrentStateStorage.registerExistingValues(currentModalPageName !== null);
     }
 
