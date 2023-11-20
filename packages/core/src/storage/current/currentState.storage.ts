@@ -2,9 +2,9 @@ import { ID } from '../../types';
 import { dataBlockIdKey, dataItemIdKey, storedValueTypeKey, storedValueValueKey } from '../../utils';
 import { PageStateData, PlainDataKey } from '../types';
 
-const defaultData: PageStateData = {
+const getDefaultData = (): PageStateData => ({
   blocks: [],
-};
+});
 
 const call = (fn: VoidFunction) => {
   /** Смещаем на следующий тик, из-за работы роутера + VKUI + возможные редиректы по диплинкам */
@@ -20,7 +20,7 @@ const defaultMapStoredKeys = <K extends keyof PageStateData>(
 
 // eslint-disable-next-line @typescript-eslint/no-extraneous-class
 export class CurrentStateStorage {
-  static data: PageStateData = defaultData;
+  static data: PageStateData = getDefaultData();
 
   /** Ключи значений в хранилище, которые сохраняются даже после вызова методов CurrentStateStorage.cleanUp и CurrentStateStorage.setPage */
   static storedKeys: Array<keyof PageStateData> = [];
@@ -37,7 +37,7 @@ export class CurrentStateStorage {
    */
   static setPage = (screenName: string) => {
     const newData: PageStateData = {
-      ...defaultData,
+      ...getDefaultData(),
       launchUrl: CurrentStateStorage.data.launchUrl,
       screenName,
     };
@@ -98,9 +98,9 @@ export class CurrentStateStorage {
    *
    */
   static cleanUp = () => {
-    CurrentStateStorage.data.blocks.length = 0;
+    CurrentStateStorage.data.blocks = [];
     const newData: PageStateData = {
-      ...defaultData,
+      ...getDefaultData(),
       screenName: CurrentStateStorage.data.screenName,
       source: CurrentStateStorage.data.source,
       launchUrl: CurrentStateStorage.data.launchUrl,
