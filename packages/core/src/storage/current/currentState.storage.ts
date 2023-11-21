@@ -74,6 +74,14 @@ export class CurrentStateStorage {
     CurrentStateStorage.data.blocks = CurrentStateStorage.data.blocks.filter((block) => block.id !== blockId);
   };
 
+  /** Очищает информацию об элементах внутри блока */
+  static cleanUpBlockById = (blockId: ID) => {
+    const targetBlock = CurrentStateStorage.data.blocks.find((block) => block.id === blockId);
+    if (targetBlock) {
+      targetBlock.items = [];
+    }
+  };
+
   /**
    * Добавляет информацию в CurrentStateStorage.data.block[blockId] об элементе.
    * Если в блоке уже существует такой элемент, дважды элемент добавлен не будет
