@@ -69,6 +69,11 @@ export class CurrentStateStorage {
     CurrentStateStorage.data.blocks.push({ ...block, items: block.items || [] });
   };
 
+  /** Удаляет блок из общего хранилища */
+  static removeBlockById = (blockId: ID) => {
+    CurrentStateStorage.data.blocks = CurrentStateStorage.data.blocks.filter((block) => block.id !== blockId);
+  };
+
   /**
    * Добавляет информацию в CurrentStateStorage.data.block[blockId] об элементе.
    * Если в блоке уже существует такой элемент, дважды элемент добавлен не будет
