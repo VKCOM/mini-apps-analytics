@@ -1,5 +1,5 @@
 import { CurrentStateStorage } from '@vkontakte/mini-apps-analytics';
-import { useContext, useLayoutEffect, useRef } from 'react';
+import { useContext, useEffect, useLayoutEffect, useRef } from 'react';
 
 import { analyticsContext } from '../context';
 import { useModalPageAnalytics } from './useModalPageAnalytics';
@@ -68,7 +68,7 @@ export const usePageAnalytics = (
   usePanelPageAnalytics(panelPageName, currentModalPageName, pageDeps);
 
   /** Регистрируем слушателя открытия страницы */
-  useLayoutEffect(() => {
+  useEffect(() => {
     const screenOpenInterval = screenOpenEventService.registerScreenListener();
 
     return () => {
@@ -81,7 +81,7 @@ export const usePageAnalytics = (
    * При старте приложения и смене роута регистрируем доступные на странице блоки.
    * Смотрим на isReady для того, чтобы все динамические блоки из /api/config смогли проинициализироваться
    */
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (isAppReady) {
       CurrentStateStorage.registerExistingValues(currentModalPageName !== null);
     }
