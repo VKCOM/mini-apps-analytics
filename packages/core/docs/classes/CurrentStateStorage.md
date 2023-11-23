@@ -42,7 +42,7 @@
 
 #### Defined in
 
-[storage/current/currentState.storage.ts:23](https://github.com/VKCOM/mini-apps-analytics/blob/469bc92/packages/core/src/storage/current/currentState.storage.ts#L23)
+[storage/current/currentState.storage.ts:23](https://github.com/VKCOM/mini-apps-analytics/blob/f96195f/packages/core/src/storage/current/currentState.storage.ts#L23)
 
 ___
 
@@ -73,7 +73,7 @@ ___
 
 #### Defined in
 
-[storage/current/currentState.storage.ts:124](https://github.com/VKCOM/mini-apps-analytics/blob/469bc92/packages/core/src/storage/current/currentState.storage.ts#L124)
+[storage/current/currentState.storage.ts:124](https://github.com/VKCOM/mini-apps-analytics/blob/f96195f/packages/core/src/storage/current/currentState.storage.ts#L124)
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 #### Defined in
 
-[storage/current/currentState.storage.ts:136](https://github.com/VKCOM/mini-apps-analytics/blob/469bc92/packages/core/src/storage/current/currentState.storage.ts#L136)
+[storage/current/currentState.storage.ts:136](https://github.com/VKCOM/mini-apps-analytics/blob/f96195f/packages/core/src/storage/current/currentState.storage.ts#L136)
 
 ___
 
@@ -97,7 +97,7 @@ ___
 
 #### Defined in
 
-[storage/current/currentState.storage.ts:127](https://github.com/VKCOM/mini-apps-analytics/blob/469bc92/packages/core/src/storage/current/currentState.storage.ts#L127)
+[storage/current/currentState.storage.ts:127](https://github.com/VKCOM/mini-apps-analytics/blob/f96195f/packages/core/src/storage/current/currentState.storage.ts#L127)
 
 ___
 
@@ -109,7 +109,7 @@ ___
 
 #### Defined in
 
-[storage/current/currentState.storage.ts:26](https://github.com/VKCOM/mini-apps-analytics/blob/469bc92/packages/core/src/storage/current/currentState.storage.ts#L26)
+[storage/current/currentState.storage.ts:26](https://github.com/VKCOM/mini-apps-analytics/blob/f96195f/packages/core/src/storage/current/currentState.storage.ts#L26)
 
 ## Methods
 
@@ -135,7 +135,7 @@ ___
 
 #### Defined in
 
-[storage/current/currentState.storage.ts:81](https://github.com/VKCOM/mini-apps-analytics/blob/469bc92/packages/core/src/storage/current/currentState.storage.ts#L81)
+[storage/current/currentState.storage.ts:81](https://github.com/VKCOM/mini-apps-analytics/blob/f96195f/packages/core/src/storage/current/currentState.storage.ts#L81)
 
 ___
 
@@ -164,7 +164,7 @@ ___
 
 #### Defined in
 
-[storage/current/currentState.storage.ts:56](https://github.com/VKCOM/mini-apps-analytics/blob/469bc92/packages/core/src/storage/current/currentState.storage.ts#L56)
+[storage/current/currentState.storage.ts:56](https://github.com/VKCOM/mini-apps-analytics/blob/f96195f/packages/core/src/storage/current/currentState.storage.ts#L56)
 
 ___
 
@@ -185,7 +185,7 @@ ___
 
 #### Defined in
 
-[storage/current/currentState.storage.ts:105](https://github.com/VKCOM/mini-apps-analytics/blob/469bc92/packages/core/src/storage/current/currentState.storage.ts#L105)
+[storage/current/currentState.storage.ts:105](https://github.com/VKCOM/mini-apps-analytics/blob/f96195f/packages/core/src/storage/current/currentState.storage.ts#L105)
 
 ___
 
@@ -205,7 +205,7 @@ ___
 
 #### Defined in
 
-[storage/current/currentState.storage.ts:129](https://github.com/VKCOM/mini-apps-analytics/blob/469bc92/packages/core/src/storage/current/currentState.storage.ts#L129)
+[storage/current/currentState.storage.ts:129](https://github.com/VKCOM/mini-apps-analytics/blob/f96195f/packages/core/src/storage/current/currentState.storage.ts#L129)
 
 ___
 
@@ -233,7 +233,7 @@ ___
 
 #### Defined in
 
-[storage/current/currentState.storage.ts:92](https://github.com/VKCOM/mini-apps-analytics/blob/469bc92/packages/core/src/storage/current/currentState.storage.ts#L92)
+[storage/current/currentState.storage.ts:92](https://github.com/VKCOM/mini-apps-analytics/blob/f96195f/packages/core/src/storage/current/currentState.storage.ts#L92)
 
 ___
 
@@ -260,7 +260,7 @@ ___
 
 #### Defined in
 
-[storage/current/currentState.storage.ts:64](https://github.com/VKCOM/mini-apps-analytics/blob/469bc92/packages/core/src/storage/current/currentState.storage.ts#L64)
+[storage/current/currentState.storage.ts:64](https://github.com/VKCOM/mini-apps-analytics/blob/f96195f/packages/core/src/storage/current/currentState.storage.ts#L64)
 
 ___
 
@@ -282,7 +282,7 @@ ___
 
 #### Defined in
 
-[storage/current/currentState.storage.ts:144](https://github.com/VKCOM/mini-apps-analytics/blob/469bc92/packages/core/src/storage/current/currentState.storage.ts#L144)
+[storage/current/currentState.storage.ts:144](https://github.com/VKCOM/mini-apps-analytics/blob/f96195f/packages/core/src/storage/current/currentState.storage.ts#L144)
 
 ___
 
@@ -304,7 +304,7 @@ ___
 
 #### Defined in
 
-[storage/current/currentState.storage.ts:73](https://github.com/VKCOM/mini-apps-analytics/blob/469bc92/packages/core/src/storage/current/currentState.storage.ts#L73)
+[storage/current/currentState.storage.ts:73](https://github.com/VKCOM/mini-apps-analytics/blob/f96195f/packages/core/src/storage/current/currentState.storage.ts#L73)
 
 ___
 
@@ -332,4 +332,4 @@ ___
 
 #### Defined in
 
-[storage/current/currentState.storage.ts:38](https://github.com/VKCOM/mini-apps-analytics/blob/469bc92/packages/core/src/storage/current/currentState.storage.ts#L38)
+[storage/current/currentState.storage.ts:38](https://github.com/VKCOM/mini-apps-analytics/blob/f96195f/packages/core/src/storage/current/currentState.storage.ts#L38)
