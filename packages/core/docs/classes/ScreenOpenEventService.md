@@ -43,7 +43,7 @@ BaseEvent.constructor
 
 #### Defined in
 
-[events/screenOpen/screenOpen.event.ts:7](https://github.com/VKCOM/mini-apps-analytics/blob/f96195f/packages/core/src/events/screenOpen/screenOpen.event.ts#L7)
+[events/screenOpen/screenOpen.event.ts:7](https://github.com/VKCOM/mini-apps-analytics/blob/a9e8a15/packages/core/src/events/screenOpen/screenOpen.event.ts#L7)
 
 ## Properties
 
@@ -61,7 +61,7 @@ BaseEvent.constructor
 
 #### Defined in
 
-[events/screenOpen/screenOpen.event.ts:6](https://github.com/VKCOM/mini-apps-analytics/blob/f96195f/packages/core/src/events/screenOpen/screenOpen.event.ts#L6)
+[events/screenOpen/screenOpen.event.ts:6](https://github.com/VKCOM/mini-apps-analytics/blob/a9e8a15/packages/core/src/events/screenOpen/screenOpen.event.ts#L6)
 
 ___
 
@@ -75,7 +75,7 @@ BaseEvent.params
 
 #### Defined in
 
-[events/base/base.event.ts:23](https://github.com/VKCOM/mini-apps-analytics/blob/f96195f/packages/core/src/events/base/base.event.ts#L23)
+[events/base/base.event.ts:23](https://github.com/VKCOM/mini-apps-analytics/blob/a9e8a15/packages/core/src/events/base/base.event.ts#L23)
 
 ___
 
@@ -89,7 +89,7 @@ BaseEvent.sendEvent
 
 #### Defined in
 
-[events/base/base.event.ts:18](https://github.com/VKCOM/mini-apps-analytics/blob/f96195f/packages/core/src/events/base/base.event.ts#L18)
+[events/base/base.event.ts:18](https://github.com/VKCOM/mini-apps-analytics/blob/a9e8a15/packages/core/src/events/base/base.event.ts#L18)
 
 ## Methods
 
@@ -107,7 +107,7 @@ this.send({ ...this.getPageData(), clientTime: time });
 
 #### Defined in
 
-[events/screenOpen/screenOpen.event.ts:18](https://github.com/VKCOM/mini-apps-analytics/blob/f96195f/packages/core/src/events/screenOpen/screenOpen.event.ts#L18)
+[events/screenOpen/screenOpen.event.ts:18](https://github.com/VKCOM/mini-apps-analytics/blob/a9e8a15/packages/core/src/events/screenOpen/screenOpen.event.ts#L18)
 
 ___
 
@@ -135,4 +135,4 @@ BaseEvent.send
 
 #### Defined in
 
-[events/base/base.event.ts:33](https://github.com/VKCOM/mini-apps-analytics/blob/f96195f/packages/core/src/events/base/base.event.ts#L33)
+[events/base/base.event.ts:33](https://github.com/VKCOM/mini-apps-analytics/blob/a9e8a15/packages/core/src/events/base/base.event.ts#L33)
