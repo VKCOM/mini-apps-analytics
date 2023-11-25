@@ -29,9 +29,9 @@ export class ShowEventService extends BaseEvent {
    * вызывает
    *
    * this.send({
-   *     ...getItemInfo(...),
    *     ...this.getPageData(),
    *     ...getBlockInfo(...),
+   *     ...getItemInfo(...),
    * })
    *
    * и отписывается от IntersectionObserver.
@@ -63,9 +63,9 @@ export class ShowEventService extends BaseEvent {
         const elementData = getItemInfo(blockEl, elementRef);
 
         this.send({
-          ...elementData,
           ...pageData,
           ...blockData,
+          ...elementData,
         });
 
         observer.disconnect();

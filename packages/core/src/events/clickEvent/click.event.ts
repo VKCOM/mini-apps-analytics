@@ -35,8 +35,8 @@ export class ClickEventService extends BaseEvent {
    * элемента значение data-block-id. Если условия соблюдены, собирает информацию об элементы с помощью функций
    * getBlockInfo, getItemInfo и
    * this.send({
-   *     ...getBlockInfo(...),
    *     ...this.getPageData(),
+   *     ...getBlockInfo(...),
    *     ...getItemInfo(...),
    * })
    *
@@ -70,9 +70,9 @@ export class ClickEventService extends BaseEvent {
           const elementData = getItemInfo(block, targetItem);
 
           this.send({
-            ...elementData,
             ...pageData,
             ...blockData,
+            ...elementData,
           });
         }
       }
