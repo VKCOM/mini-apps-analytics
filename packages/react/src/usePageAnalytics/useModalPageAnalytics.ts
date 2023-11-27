@@ -1,7 +1,7 @@
 import { CurrentStateStorage } from '@vkontakte/mini-apps-analytics';
-import { useLayoutEffect } from 'react';
+import { DependencyList, useLayoutEffect } from 'react';
 
-export const useModalPageAnalytics = (modalPageName: string | null, deps: string[] = []) => {
+export const useModalPageAnalytics = (modalPageName: string | null, deps: DependencyList = []) => {
   /**
    * Очищаем ранее собранную информацию по странице и инициируем новый сбор данных для страницы
    */

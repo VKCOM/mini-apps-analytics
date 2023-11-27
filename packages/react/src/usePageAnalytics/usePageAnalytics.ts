@@ -1,5 +1,5 @@
 import { CurrentStateStorage } from '@vkontakte/mini-apps-analytics';
-import { useContext, useEffect, useLayoutEffect, useRef } from 'react';
+import { DependencyList, useContext, useEffect, useLayoutEffect, useRef } from 'react';
 
 import { analyticsContext } from '../context';
 import { useModalPageAnalytics } from './useModalPageAnalytics';
@@ -30,17 +30,17 @@ export type UsePageAnalyticsParams = {
    * Пример использования. Страница с различными табами навигации: панель остается неизменной, но рендерится новая страница
    *
    */
-  pageDeps?: string[];
+  pageDeps?: DependencyList;
   /**
    * Значения, при которых необходимо очистить CurrentStateStorage.data
    * Пример использования. Динамическое изменение фильтров на странице должно инициировать новую регистрацию существующих
    * элементов на странице, но не должно инициировать смену страницы
    *
    */
-  cleanUpDeps?: string[];
+  cleanUpDeps?: DependencyList;
 };
 
-const defaultDeps: string[] = [];
+const defaultDeps: DependencyList = [];
 
 /**
  * Хелпер для отслеживания текущего состояния страницы, при навигации по приложению.
