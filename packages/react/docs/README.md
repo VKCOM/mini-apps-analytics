@@ -41,7 +41,7 @@
 
 #### Defined in
 
-[packages/react/src/context/analytics.context.tsx:9](https://github.com/VKCOM/mini-apps-analytics/blob/f8164be/packages/react/src/context/analytics.context.tsx#L9)
+[packages/react/src/context/analytics.context.tsx:9](https://github.com/VKCOM/mini-apps-analytics/blob/28f8dee/packages/react/src/context/analytics.context.tsx#L9)
 
 ___
 
@@ -53,14 +53,14 @@ ___
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `cleanUpDeps?` | `string`[] | Значения, при которых необходимо очистить CurrentStateStorage.data Пример использования. Динамическое изменение фильтров на странице должно инициировать новую регистрацию существующих элементов на странице, но не должно инициировать смену страницы |
+| `cleanUpDeps?` | `DependencyList` | Значения, при которых необходимо очистить CurrentStateStorage.data Пример использования. Динамическое изменение фильтров на странице должно инициировать новую регистрацию существующих элементов на странице, но не должно инициировать смену страницы |
 | `modalPageName` | `string` \| ``null`` \| ``0`` | Имя текущей модальной страницы. При изменении - вызывается событие screen_open; - сбрасыватеся CurrentStateStorage.data; - устанавливается соответствующее значение CurrentStateStorage.data.screenName; 0 - системное значение, говорящее о том, что не надо учитывать эту модалку в потоке изменения экранов |
-| `pageDeps?` | `string`[] | Значения, при которых панель/модальная страница остаются неизменными (меняется только контент). Пример использования. Страница с различными табами навигации: панель остается неизменной, но рендерится новая страница |
+| `pageDeps?` | `DependencyList` | Значения, при которых панель/модальная страница остаются неизменными (меняется только контент). Пример использования. Страница с различными табами навигации: панель остается неизменной, но рендерится новая страница |
 | `panelPageName` | `string` | Имя текущей панели. При изменении - вызывается событие screen_open; - сбрасыватеся CurrentStateStorage.data; - устанавливается соответствующее значение CurrentStateStorage.data.screenName; |
 
 #### Defined in
 
-[packages/react/src/usePageAnalytics/usePageAnalytics.ts:8](https://github.com/VKCOM/mini-apps-analytics/blob/f8164be/packages/react/src/usePageAnalytics/usePageAnalytics.ts#L8)
+[packages/react/src/usePageAnalytics/usePageAnalytics.ts:8](https://github.com/VKCOM/mini-apps-analytics/blob/28f8dee/packages/react/src/usePageAnalytics/usePageAnalytics.ts#L8)
 
 ## Variables
 
@@ -70,7 +70,7 @@ ___
 
 #### Defined in
 
-[packages/react/src/context/analytics.context.tsx:38](https://github.com/VKCOM/mini-apps-analytics/blob/f8164be/packages/react/src/context/analytics.context.tsx#L38)
+[packages/react/src/context/analytics.context.tsx:38](https://github.com/VKCOM/mini-apps-analytics/blob/28f8dee/packages/react/src/context/analytics.context.tsx#L38)
 
 ## Functions
 
@@ -123,7 +123,7 @@ ___
 
 #### Defined in
 
-[packages/react/src/useAddPlainData/useAddPlainData.tsx:8](https://github.com/VKCOM/mini-apps-analytics/blob/f8164be/packages/react/src/useAddPlainData/useAddPlainData.tsx#L8)
+[packages/react/src/useAddPlainData/useAddPlainData.tsx:8](https://github.com/VKCOM/mini-apps-analytics/blob/28f8dee/packages/react/src/useAddPlainData/useAddPlainData.tsx#L8)
 
 ___
 
@@ -175,7 +175,7 @@ const BlockElement = () => {
 
 #### Defined in
 
-[packages/react/src/useBlockRef/useBlockRef.ts:34](https://github.com/VKCOM/mini-apps-analytics/blob/f8164be/packages/react/src/useBlockRef/useBlockRef.ts#L34)
+[packages/react/src/useBlockRef/useBlockRef.ts:34](https://github.com/VKCOM/mini-apps-analytics/blob/28f8dee/packages/react/src/useBlockRef/useBlockRef.ts#L34)
 
 ___
 
@@ -218,7 +218,7 @@ ___
 
 #### Defined in
 
-[packages/react/src/useElementShowRef/useElementShowRef.ts:18](https://github.com/VKCOM/mini-apps-analytics/blob/f8164be/packages/react/src/useElementShowRef/useElementShowRef.ts#L18)
+[packages/react/src/useElementShowRef/useElementShowRef.ts:18](https://github.com/VKCOM/mini-apps-analytics/blob/28f8dee/packages/react/src/useElementShowRef/useElementShowRef.ts#L18)
 
 ___
 
@@ -237,7 +237,7 @@ ___
 
 #### Defined in
 
-[packages/react/src/useInitLaunchAnalyticsValues/useInitLaunchAnalyticsValues.ts:11](https://github.com/VKCOM/mini-apps-analytics/blob/f8164be/packages/react/src/useInitLaunchAnalyticsValues/useInitLaunchAnalyticsValues.ts#L11)
+[packages/react/src/useInitLaunchAnalyticsValues/useInitLaunchAnalyticsValues.ts:11](https://github.com/VKCOM/mini-apps-analytics/blob/28f8dee/packages/react/src/useInitLaunchAnalyticsValues/useInitLaunchAnalyticsValues.ts#L11)
 
 ___
 
@@ -305,7 +305,7 @@ const [isLoading, setIsLoading] = useState(true);
 
 #### Defined in
 
-[packages/react/src/useElementRef/useElementRef.ts:46](https://github.com/VKCOM/mini-apps-analytics/blob/f8164be/packages/react/src/useElementRef/useElementRef.ts#L46)
+[packages/react/src/useElementRef/useElementRef.ts:46](https://github.com/VKCOM/mini-apps-analytics/blob/28f8dee/packages/react/src/useElementRef/useElementRef.ts#L46)
 
 ___
 
@@ -329,7 +329,7 @@ ___
 
 #### Defined in
 
-[packages/react/src/useLaunchAnalytics/useLaunchAnalytics.ts:11](https://github.com/VKCOM/mini-apps-analytics/blob/f8164be/packages/react/src/useLaunchAnalytics/useLaunchAnalytics.ts#L11)
+[packages/react/src/useLaunchAnalytics/useLaunchAnalytics.ts:11](https://github.com/VKCOM/mini-apps-analytics/blob/28f8dee/packages/react/src/useLaunchAnalytics/useLaunchAnalytics.ts#L11)
 
 ___
 
@@ -355,4 +355,4 @@ ___
 
 #### Defined in
 
-[packages/react/src/usePageAnalytics/usePageAnalytics.ts:52](https://github.com/VKCOM/mini-apps-analytics/blob/f8164be/packages/react/src/usePageAnalytics/usePageAnalytics.ts#L52)
+[packages/react/src/usePageAnalytics/usePageAnalytics.ts:52](https://github.com/VKCOM/mini-apps-analytics/blob/28f8dee/packages/react/src/usePageAnalytics/usePageAnalytics.ts#L52)
