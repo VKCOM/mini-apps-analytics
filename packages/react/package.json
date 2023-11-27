@@ -24,7 +24,7 @@
     "docs:generate": "yarn run --top-level typedoc --readme none --plugin typedoc-plugin-markdown --out ./docs ./src/index.ts "
   },
   "devDependencies": {
-    "@types/react": "^18.2.13",
+    "@types/react": "^18.2.38",
     "@vkontakte/mini-apps-analytics": "workspace:^",
     "eslint-config-react-app": "^7.0.1",
     "eslint-plugin-jsx-a11y": "^6.7.1",
