@@ -2419,14 +2419,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:^18.2.13":
-  version: 18.2.28
-  resolution: "@types/react@npm:18.2.28"
+"@types/react@npm:^18.2.46":
+  version: 18.2.46
+  resolution: "@types/react@npm:18.2.46"
   dependencies:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
     csstype: ^3.0.2
-  checksum: 81381bedeba83278f4c9febb0b83e0bd3f42a25897a50b9cb36ef53651d34b3d50f87ebf11211ea57ea575131f85d31e93e496ce46478a00b0f9bf7b26b5917a
+  checksum: cb0e4dc7f41988a059e1246a19ec377101f5b16097ec4bf7000ef3c431ec0c8c873f40e95075821f908db1f4e3352775f0f18cea53dcad14dce67c0f5110f2bd
   languageName: node
   linkType: hard
 
@@ -2865,7 +2865,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@vkontakte/mini-apps-analytics-react@workspace:packages/react"
   dependencies:
-    "@types/react": ^18.2.13
+    "@types/react": ^18.2.46
     "@vkontakte/mini-apps-analytics": "workspace:^"
     eslint-config-react-app: ^7.0.1
     eslint-plugin-jsx-a11y: ^6.7.1
