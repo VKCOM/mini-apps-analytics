@@ -78,6 +78,6 @@ export class ClickEventService extends BaseEvent {
       }
     };
 
-    window.document.addEventListener('click', this.listener, true);
+    window.document.addEventListener('click', this.listener, false);
   }
 }
