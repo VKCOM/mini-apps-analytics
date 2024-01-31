@@ -1,5 +1,5 @@
 import { CurrentStateStorage } from '@vkontakte/mini-apps-analytics';
-import { DependencyList, useContext, useEffect, useLayoutEffect, useRef } from 'react';
+import { DependencyList, useContext, useEffect, useRef } from 'react';
 
 import { analyticsContext } from '../context';
 import { useModalPageAnalytics } from './useModalPageAnalytics';
@@ -79,25 +79,41 @@ export const usePageAnalytics = (
 
   /**
    * При старте приложения и смене роута регистрируем доступные на странице блоки.
-   * Смотрим на isReady для того, чтобы все динамические блоки из /api/config смогли проинициализироваться
+   * Смотрим на isReady если есть динамическая составляющая приложения, которая должна проинициализироваться
    */
   useEffect(() => {
     if (isAppReady) {
-      CurrentStateStorage.registerExistingValues(currentModalPageName !== null);
+      /*
+       * Смещаем установку данных по странице на следующий тик, иначе информация о странице обнулится раньше,
+       * чем отработает обработчик tap события
+       */
+      setTimeout(() => CurrentStateStorage.registerExistingValues(currentModalPageName !== null), 0);
     }
 
     return () => {
-      CurrentStateStorage.cleanUp();
+      /*
+       * Смещаем установку данных по странице на следующий тик, иначе информация о странице обнулится раньше,
+       * чем отработает обработчик tap события
+       */
+      setTimeout(() => CurrentStateStorage.cleanUp(), 0);
     };
   }, [panelPageName, isAppReady, currentModalPageName, ...pageDeps]);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (isAppReady) {
-      CurrentStateStorage.registerExistingValues(currentModalPageName !== null);
+      /*
+       * Смещаем установку данных по странице на следующий тик, иначе информация о странице обнулится раньше,
+       * чем отработает обработчик tap события
+       */
+      setTimeout(() => CurrentStateStorage.registerExistingValues(currentModalPageName !== null), 0);
     }
 
     return () => {
-      CurrentStateStorage.cleanUp();
+      /*
+       * Смещаем установку данных по странице на следующий тик, иначе информация о странице обнулится раньше,
+       * чем отработает обработчик tap события
+       */
+      setTimeout(() => CurrentStateStorage.cleanUp(), 0);
     };
   }, [cleanUpDeps, currentModalPageName]);
 };
