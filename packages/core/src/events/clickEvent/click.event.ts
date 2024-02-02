@@ -5,26 +5,13 @@ import {
   getBlockInfo,
   getItemInfo,
   lookForContainerBlockElement,
+  lookParentByPredicateFactory,
 } from '../../utils';
 import { BaseEvent } from '../base';
 
-const lookForTargetElement = (checkingElement: HTMLElement): HTMLElement | null => {
-  const value = checkingElement.getAttribute(dataEventTypeKey);
-
-  if (value !== null) {
-    if (value === dataTapEventValue) {
-      return checkingElement;
-    } else {
-      return null;
-    }
-  }
-
-  if (checkingElement.parentElement) {
-    return lookForTargetElement(checkingElement.parentElement);
-  }
-
-  return null;
-};
+const lookForTargetElement = lookParentByPredicateFactory(
+  (el) => el.getAttribute(dataEventTypeKey) === dataTapEventValue
+);
 
 /** Класс-обработчик события tap(click) на странице */
 export class ClickEventService extends BaseEvent {
@@ -45,7 +32,7 @@ export class ClickEventService extends BaseEvent {
 
   getPageData: () => PageStateData;
 
-  /* Удаляет this.listener с document */
+  /** Удаляет this.listener с document */
   onDestroy = () => {
     window.document.removeEventListener('click', this.listener);
   };
