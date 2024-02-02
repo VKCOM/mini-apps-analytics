@@ -1,18 +1,5 @@
 import { dataBlockIdKey, dataBlockIsLeaf, dataBlockNameKey, dataEntityTypeKey } from './dataAttributes';
 
-export const lookForContainerBlockElement = (itemElement: HTMLElement): HTMLElement | null => {
-  const parent = itemElement.parentElement;
-  if (!parent) {
-    return null;
-  }
-
-  if (parent.getAttribute(dataBlockIdKey)) {
-    return parent;
-  }
-
-  return lookForContainerBlockElement(parent);
-};
-
 export type HTMLBlockData = {
   /** ID блока, заданый через data-атрибут data-block-id */
   actionBlockId: string;
