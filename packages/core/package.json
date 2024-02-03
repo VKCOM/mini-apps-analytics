@@ -1,6 +1,6 @@
 {
   "name": "@vkontakte/mini-apps-analytics",
-  "version": "2.2.2",
+  "version": "2.3.0",
   "description": "core functionality to for VK mini apps analytics ",
   "main": "dist/index.js",
   "browser": "dist/index.umd.js",
