@@ -48,7 +48,7 @@ BaseEvent.constructor
 
 #### Defined in
 
-[events/clickEvent/click.event.ts:44](https://github.com/VKCOM/mini-apps-analytics/blob/4cafac2/packages/core/src/events/clickEvent/click.event.ts#L44)
+[events/clickEvent/click.event.ts:44](https://github.com/VKCOM/mini-apps-analytics/blob/54bacf9/packages/core/src/events/clickEvent/click.event.ts#L44)
 
 ## Properties
 
@@ -66,7 +66,7 @@ BaseEvent.constructor
 
 #### Defined in
 
-[events/clickEvent/click.event.ts:33](https://github.com/VKCOM/mini-apps-analytics/blob/4cafac2/packages/core/src/events/clickEvent/click.event.ts#L33)
+[events/clickEvent/click.event.ts:33](https://github.com/VKCOM/mini-apps-analytics/blob/54bacf9/packages/core/src/events/clickEvent/click.event.ts#L33)
 
 ___
 
@@ -101,7 +101,7 @@ this.send({
 
 #### Defined in
 
-[events/clickEvent/click.event.ts:31](https://github.com/VKCOM/mini-apps-analytics/blob/4cafac2/packages/core/src/events/clickEvent/click.event.ts#L31)
+[events/clickEvent/click.event.ts:31](https://github.com/VKCOM/mini-apps-analytics/blob/54bacf9/packages/core/src/events/clickEvent/click.event.ts#L31)
 
 ___
 
@@ -115,7 +115,7 @@ BaseEvent.params
 
 #### Defined in
 
-[events/base/base.event.ts:23](https://github.com/VKCOM/mini-apps-analytics/blob/4cafac2/packages/core/src/events/base/base.event.ts#L23)
+[events/base/base.event.ts:23](https://github.com/VKCOM/mini-apps-analytics/blob/54bacf9/packages/core/src/events/base/base.event.ts#L23)
 
 ___
 
@@ -129,7 +129,7 @@ BaseEvent.sendEvent
 
 #### Defined in
 
-[events/base/base.event.ts:18](https://github.com/VKCOM/mini-apps-analytics/blob/4cafac2/packages/core/src/events/base/base.event.ts#L18)
+[events/base/base.event.ts:18](https://github.com/VKCOM/mini-apps-analytics/blob/54bacf9/packages/core/src/events/base/base.event.ts#L18)
 
 ## Methods
 
@@ -145,7 +145,7 @@ BaseEvent.sendEvent
 
 #### Defined in
 
-[events/clickEvent/click.event.ts:36](https://github.com/VKCOM/mini-apps-analytics/blob/4cafac2/packages/core/src/events/clickEvent/click.event.ts#L36)
+[events/clickEvent/click.event.ts:36](https://github.com/VKCOM/mini-apps-analytics/blob/54bacf9/packages/core/src/events/clickEvent/click.event.ts#L36)
 
 ___
 
@@ -173,4 +173,4 @@ BaseEvent.send
 
 #### Defined in
 
-[events/base/base.event.ts:33](https://github.com/VKCOM/mini-apps-analytics/blob/4cafac2/packages/core/src/events/base/base.event.ts#L33)
+[events/base/base.event.ts:33](https://github.com/VKCOM/mini-apps-analytics/blob/54bacf9/packages/core/src/events/base/base.event.ts#L33)
