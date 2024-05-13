@@ -1,6 +1,6 @@
 {
   "name": "@vkontakte/mini-apps-analytics-react",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "React hooks and context provider for @vkontakte/mini-apps-analytics",
   "main": "dist/index.js",
   "browser": "dist/index.umd.js",
