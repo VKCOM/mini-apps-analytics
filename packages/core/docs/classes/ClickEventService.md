@@ -18,8 +18,9 @@
 
 ### Properties
 
+- [captureListener](ClickEventService.md#capturelistener)
 - [getPageData](ClickEventService.md#getpagedata)
-- [listener](ClickEventService.md#listener)
+- [noCaptureListener](ClickEventService.md#nocapturelistener)
 - [params](ClickEventService.md#params)
 - [sendEvent](ClickEventService.md#sendevent)
 
@@ -48,9 +49,33 @@ BaseEvent.constructor
 
 #### Defined in
 
-[events/clickEvent/click.event.ts:44](https://github.com/VKCOM/mini-apps-analytics/blob/8833675/packages/core/src/events/clickEvent/click.event.ts#L44)
+[events/clickEvent/click.event.ts:46](https://github.com/VKCOM/mini-apps-analytics/blob/533127a/packages/core/src/events/clickEvent/click.event.ts#L46)
 
 ## Properties
+
+### captureListener
+
+• `Private` `Readonly` **captureListener**: (`e`: `MouseEvent`) => `void`
+
+#### Type declaration
+
+▸ (`e`): `void`
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `e` | `MouseEvent` |
+
+##### Returns
+
+`void`
+
+#### Defined in
+
+[events/clickEvent/click.event.ts:32](https://github.com/VKCOM/mini-apps-analytics/blob/533127a/packages/core/src/events/clickEvent/click.event.ts#L32)
+
+___
 
 ### getPageData
 
@@ -66,13 +91,13 @@ BaseEvent.constructor
 
 #### Defined in
 
-[events/clickEvent/click.event.ts:33](https://github.com/VKCOM/mini-apps-analytics/blob/8833675/packages/core/src/events/clickEvent/click.event.ts#L33)
+[events/clickEvent/click.event.ts:34](https://github.com/VKCOM/mini-apps-analytics/blob/533127a/packages/core/src/events/clickEvent/click.event.ts#L34)
 
 ___
 
-### listener
+### noCaptureListener
 
-• `Private` `Readonly` **listener**: (`e`: `MouseEvent`) => `void`
+• `Private` `Readonly` **noCaptureListener**: (`e`: `MouseEvent`) => `void`
 
 #### Type declaration
 
@@ -88,6 +113,7 @@ this.send({
     ...getBlockInfo(...),
     ...getItemInfo(...),
 })
+NOTE: Заводим 2 отдельных листенера для отлова события на разных фазах (погружение/всплытие)
 
 ##### Parameters
 
@@ -101,7 +127,7 @@ this.send({
 
 #### Defined in
 
-[events/clickEvent/click.event.ts:31](https://github.com/VKCOM/mini-apps-analytics/blob/8833675/packages/core/src/events/clickEvent/click.event.ts#L31)
+[events/clickEvent/click.event.ts:31](https://github.com/VKCOM/mini-apps-analytics/blob/533127a/packages/core/src/events/clickEvent/click.event.ts#L31)
 
 ___
 
@@ -115,7 +141,7 @@ BaseEvent.params
 
 #### Defined in
 
-[events/base/base.event.ts:23](https://github.com/VKCOM/mini-apps-analytics/blob/8833675/packages/core/src/events/base/base.event.ts#L23)
+[events/base/base.event.ts:23](https://github.com/VKCOM/mini-apps-analytics/blob/533127a/packages/core/src/events/base/base.event.ts#L23)
 
 ___
 
@@ -129,7 +155,7 @@ BaseEvent.sendEvent
 
 #### Defined in
 
-[events/base/base.event.ts:18](https://github.com/VKCOM/mini-apps-analytics/blob/8833675/packages/core/src/events/base/base.event.ts#L18)
+[events/base/base.event.ts:18](https://github.com/VKCOM/mini-apps-analytics/blob/533127a/packages/core/src/events/base/base.event.ts#L18)
 
 ## Methods
 
@@ -137,7 +163,7 @@ BaseEvent.sendEvent
 
 ▸ **onDestroy**(): `void`
 
-Удаляет this.listener с document
+Удаляет this.noCaptureListener/this.captureListener из списка листенеро на document'е
 
 #### Returns
 
@@ -145,7 +171,7 @@ BaseEvent.sendEvent
 
 #### Defined in
 
-[events/clickEvent/click.event.ts:36](https://github.com/VKCOM/mini-apps-analytics/blob/8833675/packages/core/src/events/clickEvent/click.event.ts#L36)
+[events/clickEvent/click.event.ts:37](https://github.com/VKCOM/mini-apps-analytics/blob/533127a/packages/core/src/events/clickEvent/click.event.ts#L37)
 
 ___
 
@@ -173,4 +199,4 @@ BaseEvent.send
 
 #### Defined in
 
-[events/base/base.event.ts:33](https://github.com/VKCOM/mini-apps-analytics/blob/8833675/packages/core/src/events/base/base.event.ts#L33)
+[events/base/base.event.ts:33](https://github.com/VKCOM/mini-apps-analytics/blob/533127a/packages/core/src/events/base/base.event.ts#L33)

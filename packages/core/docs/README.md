@@ -41,6 +41,7 @@
 - [dataEventTypeKey](README.md#dataeventtypekey)
 - [dataItemIdKey](README.md#dataitemidkey)
 - [dataItemNameKey](README.md#dataitemnamekey)
+- [dataItemUseCaptureKey](README.md#dataitemusecapturekey)
 - [dataTapEventValue](README.md#datatapeventvalue)
 - [storedValueTypeKey](README.md#storedvaluetypekey)
 - [storedValueValueKey](README.md#storedvaluevaluekey)
@@ -71,7 +72,7 @@
 
 #### Defined in
 
-[types/analyticsEvent.ts:6](https://github.com/VKCOM/mini-apps-analytics/blob/8833675/packages/core/src/types/analyticsEvent.ts#L6)
+[types/analyticsEvent.ts:6](https://github.com/VKCOM/mini-apps-analytics/blob/533127a/packages/core/src/types/analyticsEvent.ts#L6)
 
 ___
 
@@ -89,7 +90,7 @@ ___
 
 #### Defined in
 
-[types/eventData.ts:1](https://github.com/VKCOM/mini-apps-analytics/blob/8833675/packages/core/src/types/eventData.ts#L1)
+[types/eventData.ts:1](https://github.com/VKCOM/mini-apps-analytics/blob/533127a/packages/core/src/types/eventData.ts#L1)
 
 ___
 
@@ -109,7 +110,7 @@ ___
 
 #### Defined in
 
-[utils/blockElement.ts:3](https://github.com/VKCOM/mini-apps-analytics/blob/8833675/packages/core/src/utils/blockElement.ts#L3)
+[utils/blockElement.ts:3](https://github.com/VKCOM/mini-apps-analytics/blob/533127a/packages/core/src/utils/blockElement.ts#L3)
 
 ___
 
@@ -124,10 +125,11 @@ ___
 | `actionElementId` | [`ID`](README.md#id) | ID элемента, заданый через data-атрибут data-item-id |
 | `actionElementIndex` | `number` | Порядковый номер элемента в блоке, внутри которого он находится. -1, если элемент не найден в блоке |
 | `actionElementName?` | `string` | Имя блока элемента, заданое через data-атрибут data-item-name |
+| `eventUseCapture` | `boolean` | Параметр, отвечающий за то, на какой фазе отлавливать событие |
 
 #### Defined in
 
-[utils/getItemInfo.ts:4](https://github.com/VKCOM/mini-apps-analytics/blob/8833675/packages/core/src/utils/getItemInfo.ts#L4)
+[utils/getItemInfo.ts:4](https://github.com/VKCOM/mini-apps-analytics/blob/533127a/packages/core/src/utils/getItemInfo.ts#L4)
 
 ___
 
@@ -137,7 +139,7 @@ ___
 
 #### Defined in
 
-[types/pageState.ts:1](https://github.com/VKCOM/mini-apps-analytics/blob/8833675/packages/core/src/types/pageState.ts#L1)
+[types/pageState.ts:1](https://github.com/VKCOM/mini-apps-analytics/blob/533127a/packages/core/src/types/pageState.ts#L1)
 
 ___
 
@@ -154,7 +156,7 @@ ___
 
 #### Defined in
 
-[utils/dataAttributes.ts:33](https://github.com/VKCOM/mini-apps-analytics/blob/8833675/packages/core/src/utils/dataAttributes.ts#L33)
+[utils/dataAttributes.ts:34](https://github.com/VKCOM/mini-apps-analytics/blob/533127a/packages/core/src/utils/dataAttributes.ts#L34)
 
 ___
 
@@ -173,7 +175,7 @@ ___
 
 #### Defined in
 
-[utils/getItemPathInfo.ts:6](https://github.com/VKCOM/mini-apps-analytics/blob/8833675/packages/core/src/utils/getItemPathInfo.ts#L6)
+[utils/getItemPathInfo.ts:6](https://github.com/VKCOM/mini-apps-analytics/blob/533127a/packages/core/src/utils/getItemPathInfo.ts#L6)
 
 ___
 
@@ -201,7 +203,7 @@ ___
 
 #### Defined in
 
-[types/pageState.ts:4](https://github.com/VKCOM/mini-apps-analytics/blob/8833675/packages/core/src/types/pageState.ts#L4)
+[types/pageState.ts:4](https://github.com/VKCOM/mini-apps-analytics/blob/533127a/packages/core/src/types/pageState.ts#L4)
 
 ___
 
@@ -213,7 +215,7 @@ ___
 
 #### Defined in
 
-[storage/types.ts:4](https://github.com/VKCOM/mini-apps-analytics/blob/8833675/packages/core/src/storage/types.ts#L4)
+[storage/types.ts:4](https://github.com/VKCOM/mini-apps-analytics/blob/533127a/packages/core/src/storage/types.ts#L4)
 
 ___
 
@@ -223,7 +225,7 @@ ___
 
 #### Defined in
 
-[storage/types.ts:6](https://github.com/VKCOM/mini-apps-analytics/blob/8833675/packages/core/src/storage/types.ts#L6)
+[storage/types.ts:6](https://github.com/VKCOM/mini-apps-analytics/blob/533127a/packages/core/src/storage/types.ts#L6)
 
 ___
 
@@ -245,17 +247,17 @@ ___
 
 #### Defined in
 
-[networkRequestsAnalytics/networkRequestsAnalytics.ts:3](https://github.com/VKCOM/mini-apps-analytics/blob/8833675/packages/core/src/networkRequestsAnalytics/networkRequestsAnalytics.ts#L3)
+[networkRequestsAnalytics/networkRequestsAnalytics.ts:3](https://github.com/VKCOM/mini-apps-analytics/blob/533127a/packages/core/src/networkRequestsAnalytics/networkRequestsAnalytics.ts#L3)
 
 ___
 
 ### TappableItemDataAttributes
 
-Ƭ **TappableItemDataAttributes**: [`ItemDataAttributes`](README.md#itemdataattributes) & { `data-event-type`: ``"tap"`` ; `data-json?`: `string`  }
+Ƭ **TappableItemDataAttributes**: [`ItemDataAttributes`](README.md#itemdataattributes) & { `data-event-type`: ``"tap"`` ; `data-item-use-capture?`: `boolean` ; `data-json?`: `string`  }
 
 #### Defined in
 
-[utils/dataAttributes.ts:49](https://github.com/VKCOM/mini-apps-analytics/blob/8833675/packages/core/src/utils/dataAttributes.ts#L49)
+[utils/dataAttributes.ts:50](https://github.com/VKCOM/mini-apps-analytics/blob/533127a/packages/core/src/utils/dataAttributes.ts#L50)
 
 ## Variables
 
@@ -265,7 +267,7 @@ ___
 
 #### Defined in
 
-[utils/dataAttributes.ts:3](https://github.com/VKCOM/mini-apps-analytics/blob/8833675/packages/core/src/utils/dataAttributes.ts#L3)
+[utils/dataAttributes.ts:3](https://github.com/VKCOM/mini-apps-analytics/blob/533127a/packages/core/src/utils/dataAttributes.ts#L3)
 
 ___
 
@@ -286,7 +288,7 @@ Data-атрибут для обозначения того, что блок яв
 
 #### Defined in
 
-[utils/dataAttributes.ts:14](https://github.com/VKCOM/mini-apps-analytics/blob/8833675/packages/core/src/utils/dataAttributes.ts#L14)
+[utils/dataAttributes.ts:14](https://github.com/VKCOM/mini-apps-analytics/blob/533127a/packages/core/src/utils/dataAttributes.ts#L14)
 
 ___
 
@@ -296,7 +298,7 @@ ___
 
 #### Defined in
 
-[utils/dataAttributes.ts:16](https://github.com/VKCOM/mini-apps-analytics/blob/8833675/packages/core/src/utils/dataAttributes.ts#L16)
+[utils/dataAttributes.ts:16](https://github.com/VKCOM/mini-apps-analytics/blob/533127a/packages/core/src/utils/dataAttributes.ts#L16)
 
 ___
 
@@ -306,7 +308,7 @@ ___
 
 #### Defined in
 
-[utils/dataAttributes.ts:4](https://github.com/VKCOM/mini-apps-analytics/blob/8833675/packages/core/src/utils/dataAttributes.ts#L4)
+[utils/dataAttributes.ts:4](https://github.com/VKCOM/mini-apps-analytics/blob/533127a/packages/core/src/utils/dataAttributes.ts#L4)
 
 ___
 
@@ -316,7 +318,7 @@ ___
 
 #### Defined in
 
-[utils/dataAttributes.ts:17](https://github.com/VKCOM/mini-apps-analytics/blob/8833675/packages/core/src/utils/dataAttributes.ts#L17)
+[utils/dataAttributes.ts:17](https://github.com/VKCOM/mini-apps-analytics/blob/533127a/packages/core/src/utils/dataAttributes.ts#L17)
 
 ___
 
@@ -326,7 +328,7 @@ ___
 
 #### Defined in
 
-[utils/dataAttributes.ts:30](https://github.com/VKCOM/mini-apps-analytics/blob/8833675/packages/core/src/utils/dataAttributes.ts#L30)
+[utils/dataAttributes.ts:31](https://github.com/VKCOM/mini-apps-analytics/blob/533127a/packages/core/src/utils/dataAttributes.ts#L31)
 
 ___
 
@@ -336,7 +338,7 @@ ___
 
 #### Defined in
 
-[utils/dataAttributes.ts:28](https://github.com/VKCOM/mini-apps-analytics/blob/8833675/packages/core/src/utils/dataAttributes.ts#L28)
+[utils/dataAttributes.ts:28](https://github.com/VKCOM/mini-apps-analytics/blob/533127a/packages/core/src/utils/dataAttributes.ts#L28)
 
 ___
 
@@ -346,7 +348,17 @@ ___
 
 #### Defined in
 
-[utils/dataAttributes.ts:29](https://github.com/VKCOM/mini-apps-analytics/blob/8833675/packages/core/src/utils/dataAttributes.ts#L29)
+[utils/dataAttributes.ts:30](https://github.com/VKCOM/mini-apps-analytics/blob/533127a/packages/core/src/utils/dataAttributes.ts#L30)
+
+___
+
+### dataItemUseCaptureKey
+
+• `Const` **dataItemUseCaptureKey**: ``"data-item-use-capture"``
+
+#### Defined in
+
+[utils/dataAttributes.ts:29](https://github.com/VKCOM/mini-apps-analytics/blob/533127a/packages/core/src/utils/dataAttributes.ts#L29)
 
 ___
 
@@ -356,7 +368,7 @@ ___
 
 #### Defined in
 
-[utils/dataAttributes.ts:31](https://github.com/VKCOM/mini-apps-analytics/blob/8833675/packages/core/src/utils/dataAttributes.ts#L31)
+[utils/dataAttributes.ts:32](https://github.com/VKCOM/mini-apps-analytics/blob/533127a/packages/core/src/utils/dataAttributes.ts#L32)
 
 ___
 
@@ -366,7 +378,7 @@ ___
 
 #### Defined in
 
-[utils/dataAttributes.ts:75](https://github.com/VKCOM/mini-apps-analytics/blob/8833675/packages/core/src/utils/dataAttributes.ts#L75)
+[utils/dataAttributes.ts:81](https://github.com/VKCOM/mini-apps-analytics/blob/533127a/packages/core/src/utils/dataAttributes.ts#L81)
 
 ___
 
@@ -376,7 +388,7 @@ ___
 
 #### Defined in
 
-[utils/dataAttributes.ts:76](https://github.com/VKCOM/mini-apps-analytics/blob/8833675/packages/core/src/utils/dataAttributes.ts#L76)
+[utils/dataAttributes.ts:82](https://github.com/VKCOM/mini-apps-analytics/blob/533127a/packages/core/src/utils/dataAttributes.ts#L82)
 
 ## Functions
 
@@ -404,7 +416,7 @@ ___
 
 #### Defined in
 
-[utils/blockElement.ts:16](https://github.com/VKCOM/mini-apps-analytics/blob/8833675/packages/core/src/utils/blockElement.ts#L16)
+[utils/blockElement.ts:16](https://github.com/VKCOM/mini-apps-analytics/blob/533127a/packages/core/src/utils/blockElement.ts#L16)
 
 ___
 
@@ -432,7 +444,7 @@ ___
 
 #### Defined in
 
-[utils/dataAttributes.ts:20](https://github.com/VKCOM/mini-apps-analytics/blob/8833675/packages/core/src/utils/dataAttributes.ts#L20)
+[utils/dataAttributes.ts:20](https://github.com/VKCOM/mini-apps-analytics/blob/533127a/packages/core/src/utils/dataAttributes.ts#L20)
 
 ___
 
@@ -460,7 +472,7 @@ ___
 
 #### Defined in
 
-[utils/getItemInfo.ts:13](https://github.com/VKCOM/mini-apps-analytics/blob/8833675/packages/core/src/utils/getItemInfo.ts#L13)
+[utils/getItemInfo.ts:15](https://github.com/VKCOM/mini-apps-analytics/blob/533127a/packages/core/src/utils/getItemInfo.ts#L15)
 
 ___
 
@@ -483,7 +495,7 @@ ___
 
 #### Defined in
 
-[utils/dataAttributes.ts:39](https://github.com/VKCOM/mini-apps-analytics/blob/8833675/packages/core/src/utils/dataAttributes.ts#L39)
+[utils/dataAttributes.ts:40](https://github.com/VKCOM/mini-apps-analytics/blob/533127a/packages/core/src/utils/dataAttributes.ts#L40)
 
 ___
 
@@ -505,7 +517,7 @@ ___
 
 #### Defined in
 
-[utils/getItemPathInfo.ts:18](https://github.com/VKCOM/mini-apps-analytics/blob/8833675/packages/core/src/utils/getItemPathInfo.ts#L18)
+[utils/getItemPathInfo.ts:18](https://github.com/VKCOM/mini-apps-analytics/blob/533127a/packages/core/src/utils/getItemPathInfo.ts#L18)
 
 ___
 
@@ -531,7 +543,7 @@ ___
 
 #### Defined in
 
-[utils/dataAttributes.ts:78](https://github.com/VKCOM/mini-apps-analytics/blob/8833675/packages/core/src/utils/dataAttributes.ts#L78)
+[utils/dataAttributes.ts:84](https://github.com/VKCOM/mini-apps-analytics/blob/533127a/packages/core/src/utils/dataAttributes.ts#L84)
 
 ___
 
@@ -548,7 +560,7 @@ ___
 | :------ | :------ |
 | `id` | [`ID`](README.md#id) |
 | `name?` | `string` |
-| `data?` | `Partial`<[`CustomData`](interfaces/CustomData.md)\> |
+| `data?` | `Partial`<[`CustomData`](interfaces/CustomData.md)\> & { `useCapture?`: `boolean`  } |
 
 #### Returns
 
@@ -556,7 +568,7 @@ ___
 
 #### Defined in
 
-[utils/dataAttributes.ts:59](https://github.com/VKCOM/mini-apps-analytics/blob/8833675/packages/core/src/utils/dataAttributes.ts#L59)
+[utils/dataAttributes.ts:61](https://github.com/VKCOM/mini-apps-analytics/blob/533127a/packages/core/src/utils/dataAttributes.ts#L61)
 
 ___
 
@@ -578,7 +590,7 @@ ___
 
 #### Defined in
 
-[utils/helpers.ts:6](https://github.com/VKCOM/mini-apps-analytics/blob/8833675/packages/core/src/utils/helpers.ts#L6)
+[utils/helpers.ts:6](https://github.com/VKCOM/mini-apps-analytics/blob/533127a/packages/core/src/utils/helpers.ts#L6)
 
 ___
 
@@ -600,7 +612,7 @@ ___
 
 #### Defined in
 
-[utils/helpers.ts:6](https://github.com/VKCOM/mini-apps-analytics/blob/8833675/packages/core/src/utils/helpers.ts#L6)
+[utils/helpers.ts:6](https://github.com/VKCOM/mini-apps-analytics/blob/533127a/packages/core/src/utils/helpers.ts#L6)
 
 ___
 
@@ -632,7 +644,7 @@ ___
 
 #### Defined in
 
-[utils/helpers.ts:5](https://github.com/VKCOM/mini-apps-analytics/blob/8833675/packages/core/src/utils/helpers.ts#L5)
+[utils/helpers.ts:5](https://github.com/VKCOM/mini-apps-analytics/blob/533127a/packages/core/src/utils/helpers.ts#L5)
 
 ___
 
@@ -694,7 +706,7 @@ const App = () => {
 
 #### Defined in
 
-[networkRequestsAnalytics/networkRequestsAnalytics.ts:55](https://github.com/VKCOM/mini-apps-analytics/blob/8833675/packages/core/src/networkRequestsAnalytics/networkRequestsAnalytics.ts#L55)
+[networkRequestsAnalytics/networkRequestsAnalytics.ts:55](https://github.com/VKCOM/mini-apps-analytics/blob/533127a/packages/core/src/networkRequestsAnalytics/networkRequestsAnalytics.ts#L55)
 
 ___
 
@@ -716,7 +728,7 @@ ___
 
 #### Defined in
 
-[storage/current/currentState.storage.ts:217](https://github.com/VKCOM/mini-apps-analytics/blob/8833675/packages/core/src/storage/current/currentState.storage.ts#L217)
+[storage/current/currentState.storage.ts:217](https://github.com/VKCOM/mini-apps-analytics/blob/533127a/packages/core/src/storage/current/currentState.storage.ts#L217)
 
 ___
 
@@ -740,4 +752,4 @@ ___
 
 #### Defined in
 
-[events/base/base.event.ts:42](https://github.com/VKCOM/mini-apps-analytics/blob/8833675/packages/core/src/events/base/base.event.ts#L42)
+[events/base/base.event.ts:42](https://github.com/VKCOM/mini-apps-analytics/blob/533127a/packages/core/src/events/base/base.event.ts#L42)
