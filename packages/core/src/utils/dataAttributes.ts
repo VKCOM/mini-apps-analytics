@@ -26,6 +26,7 @@ export const getBlockParameters = ({ id, entityType, name, isLeaf }: BlockParams
 });
 
 export const dataItemIdKey = 'data-item-id';
+export const dataItemUseCaptureKey = 'data-item-use-capture';
 export const dataItemNameKey = 'data-item-name';
 export const dataEventTypeKey = 'data-event-type';
 export const dataTapEventValue = 'tap';
@@ -48,6 +49,7 @@ export const getItemParameters = (id: ID, name?: string): ItemDataAttributes =>
 
 export type TappableItemDataAttributes = ItemDataAttributes & {
   [dataEventTypeKey]: 'tap';
+  [dataItemUseCaptureKey]?: boolean;
   /** Любые дополнительные данные, которые сохраняются в DOM-дереве. Внутри - Partial<CustomData> */
   'data-json'?: string;
 };
@@ -59,18 +61,22 @@ export type TappableItemDataAttributes = ItemDataAttributes & {
 export const getTappableItemParameters = (
   id: ID,
   name?: string,
-  data?: Partial<CustomData>
-): TappableItemDataAttributes =>
-  data
-    ? {
-        ...getItemParameters(id, name),
-        [dataEventTypeKey]: dataTapEventValue,
-        ['data-json']: JSON.stringify(data),
-      }
-    : {
-        ...getItemParameters(id, name),
-        [dataEventTypeKey]: dataTapEventValue,
-      };
+  data?: Partial<CustomData> & { useCapture?: boolean }
+): TappableItemDataAttributes => {
+  if (data) {
+    const { useCapture, ...restData } = data;
+    return {
+      ...getItemParameters(id, name),
+      [dataEventTypeKey]: dataTapEventValue,
+      ['data-json']: JSON.stringify(restData),
+      [dataItemUseCaptureKey]: Boolean(useCapture),
+    };
+  }
+  return {
+    ...getItemParameters(id, name),
+    [dataEventTypeKey]: dataTapEventValue,
+  };
+};
 
 export const storedValueTypeKey = 'data-stored-type';
 export const storedValueValueKey = 'data-stored-value';

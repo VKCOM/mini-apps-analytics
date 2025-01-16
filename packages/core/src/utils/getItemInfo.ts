@@ -1,5 +1,5 @@
 import { CustomData, ID } from '../types';
-import { dataItemIdKey, dataItemNameKey } from './dataAttributes';
+import { dataItemIdKey, dataItemNameKey, dataItemUseCaptureKey } from './dataAttributes';
 
 export type HTMLItemInfo = {
   /** ID элемента, заданый через data-атрибут data-item-id */
@@ -8,6 +8,8 @@ export type HTMLItemInfo = {
   actionElementIndex: number;
   /** Имя блока элемента, заданое через data-атрибут data-item-name */
   actionElementName?: string;
+  /** Параметр, отвечающий за то, на какой фазе отлавливать событие */
+  eventUseCapture: boolean;
 };
 
 export const getItemInfo = <B extends HTMLElement, T extends HTMLElement>(
@@ -19,6 +21,7 @@ export const getItemInfo = <B extends HTMLElement, T extends HTMLElement>(
   const actionElementId = targetItem.getAttribute(dataItemIdKey) || '';
   const actionElementIndex = allItems.findIndex((item) => item === targetItem);
   const actionElementName = targetItem.getAttribute(dataItemNameKey) || targetItem.innerText;
+  const eventUseCapture = targetItem.getAttribute(dataItemUseCaptureKey) === 'true';
   const data = targetItem.getAttribute('data-json');
 
   let jsonData: Partial<CustomData> = {};
@@ -32,6 +35,7 @@ export const getItemInfo = <B extends HTMLElement, T extends HTMLElement>(
     actionElementId,
     actionElementIndex: actionElementIndex < 0 ? -1 : actionElementIndex + 1,
     actionElementName,
+    eventUseCapture,
     ...jsonData,
   };
 };
