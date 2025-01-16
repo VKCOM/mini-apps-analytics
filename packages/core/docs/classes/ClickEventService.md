@@ -49,7 +49,7 @@ BaseEvent.constructor
 
 #### Defined in
 
-[events/clickEvent/click.event.ts:46](https://github.com/VKCOM/mini-apps-analytics/blob/533127a/packages/core/src/events/clickEvent/click.event.ts#L46)
+[events/clickEvent/click.event.ts:46](https://github.com/VKCOM/mini-apps-analytics/blob/d86ab24/packages/core/src/events/clickEvent/click.event.ts#L46)
 
 ## Properties
 
@@ -73,7 +73,7 @@ BaseEvent.constructor
 
 #### Defined in
 
-[events/clickEvent/click.event.ts:32](https://github.com/VKCOM/mini-apps-analytics/blob/533127a/packages/core/src/events/clickEvent/click.event.ts#L32)
+[events/clickEvent/click.event.ts:32](https://github.com/VKCOM/mini-apps-analytics/blob/d86ab24/packages/core/src/events/clickEvent/click.event.ts#L32)
 
 ___
 
@@ -91,7 +91,7 @@ ___
 
 #### Defined in
 
-[events/clickEvent/click.event.ts:34](https://github.com/VKCOM/mini-apps-analytics/blob/533127a/packages/core/src/events/clickEvent/click.event.ts#L34)
+[events/clickEvent/click.event.ts:34](https://github.com/VKCOM/mini-apps-analytics/blob/d86ab24/packages/core/src/events/clickEvent/click.event.ts#L34)
 
 ___
 
@@ -127,7 +127,7 @@ NOTE: Заводим 2 отдельных листенера для отлова
 
 #### Defined in
 
-[events/clickEvent/click.event.ts:31](https://github.com/VKCOM/mini-apps-analytics/blob/533127a/packages/core/src/events/clickEvent/click.event.ts#L31)
+[events/clickEvent/click.event.ts:31](https://github.com/VKCOM/mini-apps-analytics/blob/d86ab24/packages/core/src/events/clickEvent/click.event.ts#L31)
 
 ___
 
@@ -141,7 +141,7 @@ BaseEvent.params
 
 #### Defined in
 
-[events/base/base.event.ts:23](https://github.com/VKCOM/mini-apps-analytics/blob/533127a/packages/core/src/events/base/base.event.ts#L23)
+[events/base/base.event.ts:23](https://github.com/VKCOM/mini-apps-analytics/blob/d86ab24/packages/core/src/events/base/base.event.ts#L23)
 
 ___
 
@@ -155,7 +155,7 @@ BaseEvent.sendEvent
 
 #### Defined in
 
-[events/base/base.event.ts:18](https://github.com/VKCOM/mini-apps-analytics/blob/533127a/packages/core/src/events/base/base.event.ts#L18)
+[events/base/base.event.ts:18](https://github.com/VKCOM/mini-apps-analytics/blob/d86ab24/packages/core/src/events/base/base.event.ts#L18)
 
 ## Methods
 
@@ -171,7 +171,7 @@ BaseEvent.sendEvent
 
 #### Defined in
 
-[events/clickEvent/click.event.ts:37](https://github.com/VKCOM/mini-apps-analytics/blob/533127a/packages/core/src/events/clickEvent/click.event.ts#L37)
+[events/clickEvent/click.event.ts:37](https://github.com/VKCOM/mini-apps-analytics/blob/d86ab24/packages/core/src/events/clickEvent/click.event.ts#L37)
 
 ___
 
@@ -199,4 +199,4 @@ BaseEvent.send
 
 #### Defined in
 
-[events/base/base.event.ts:33](https://github.com/VKCOM/mini-apps-analytics/blob/533127a/packages/core/src/events/base/base.event.ts#L33)
+[events/base/base.event.ts:33](https://github.com/VKCOM/mini-apps-analytics/blob/d86ab24/packages/core/src/events/base/base.event.ts#L33)
