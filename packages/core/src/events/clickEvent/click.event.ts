@@ -26,15 +26,17 @@ export class ClickEventService extends BaseEvent {
    *     ...getBlockInfo(...),
    *     ...getItemInfo(...),
    * })
-   *
+   * NOTE: Заводим 2 отдельных листенера для отлова события на разных фазах (погружение/всплытие)
    */
-  private readonly listener: (e: MouseEvent) => void;
+  private readonly noCaptureListener: (e: MouseEvent) => void;
+  private readonly captureListener: (e: MouseEvent) => void;
 
   getPageData: () => PageStateData;
 
-  /** Удаляет this.listener с document */
+  /** Удаляет this.noCaptureListener/this.captureListener из списка листенеро на document'е */
   onDestroy = () => {
-    window.document.removeEventListener('click', this.listener);
+    window.document.removeEventListener('click', this.noCaptureListener);
+    window.document.removeEventListener('click', this.captureListener);
   };
 
   /**
@@ -44,8 +46,7 @@ export class ClickEventService extends BaseEvent {
   constructor(getPageData: () => PageStateData) {
     super({ event: 'tap', type: 'type_click' });
     this.getPageData = getPageData;
-
-    this.listener = (e: MouseEvent) => {
+    const getListener = (useCapture: boolean) => (e: MouseEvent) => {
       const targetItem = lookForTargetElement(e.target as HTMLElement);
 
       if (targetItem) {
@@ -56,6 +57,10 @@ export class ClickEventService extends BaseEvent {
           const blockData = getBlockInfo(block, pageData.blocks);
           const elementData = getItemInfo(block, targetItem);
 
+          if (elementData.eventUseCapture !== useCapture) {
+            return;
+          }
+
           this.send({
             ...pageData,
             ...blockData,
@@ -65,6 +70,10 @@ export class ClickEventService extends BaseEvent {
       }
     };
 
-    window.document.addEventListener('click', this.listener, false);
+    this.noCaptureListener = getListener(false);
+    this.captureListener = getListener(true);
+
+    window.document.addEventListener('click', this.noCaptureListener, false);
+    window.document.addEventListener('click', this.captureListener, true);
   }
 }
